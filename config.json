@@ -45,8 +45,8 @@
     0.02,
     0
   ],
-  "MAX_SKILL": 10,
-  "SOFT_MAX_SKILL": 10,
+  "MAX_SKILL": 18,
+  "SOFT_MAX_SKILL": 18,
   "TIER_1": 10,
   "TIER_2": 25,
   "TIER_3": 45,
