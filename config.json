@@ -13,18 +13,18 @@
   "verbose": true,
   "WIDTH": 3000,
   "HEIGHT": 3000,
-  "MODE": "ttm",
+  "MODE": "tdm",
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    [ "roid", "bas1", "norm", "norm","norm", "norm", "norm", "roid" ],
+    [ "roid", "norm", "norm", "norm","norm", "norm", "norm", "roid" ],
     [ "norm", "norm", "norm", "norm","norm", "norm", "norm", "norm" ],
     [ "norm", "norm", "rock", "rock","rock", "rock", "norm", "norm" ],
     [ "norm", "norm", "rock", "nest","nest", "rock", "norm", "norm" ],
     [ "norm", "norm", "rock", "nest","nest", "rock", "norm", "norm" ],
     [ "norm", "norm", "rock", "rock","rock", "rock", "norm", "norm" ],
     [ "norm", "norm", "norm", "norm","norm", "norm", "norm", "norm" ],
-    [ "roid", "norm", "norm", "norm","norm", "norm", "bas2", "roid" ]
+    [ "roid", "norm", "norm", "norm","norm", "norm", "norm", "roid" ]
     ],
   "X_GRID": 8,
   "Y_GRID": 8,
