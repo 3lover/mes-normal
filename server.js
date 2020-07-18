@@ -4650,7 +4650,6 @@ var maintainloop = (() => {
                     o.define(Class.basic);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
-                    o.color = 16;
                     bots.push(o);
                 }
                 // Remove dead ones
