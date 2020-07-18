@@ -4646,7 +4646,7 @@ var maintainloop = (() => {
                 if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
                     o.color = 17;
-                    o.define(ran.dice(80)) ? ran.choose([Class.botrammer, Class.botgun]) : ran.choose([Class.botrammer, Class.botgun]);
+                    o.define(Class.botrammer);
                     o.define(Class.basic);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
