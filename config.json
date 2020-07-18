@@ -52,13 +52,13 @@
   "TIER_3": 45,
   "TIER_4": 60,
   "SKILL_CAP": 60,
-  "SKILL_SOFT_CAP": 0,
+  "SKILL_SOFT_CAP": 60,
   "SKILL_CHEAT_CAP": 60,
   "SKILL_LEAK": 0,
   "STEALTH": 4,
   "MIN_SPEED": 0.001,
   "FOOD_AMOUNT": 0.4, 
   "SKILL_BOOST": 5,
-  "BOTS": 0,
+  "BOTS": 5,
   "GLASS_HEALTH_FACTOR": 2
 }
