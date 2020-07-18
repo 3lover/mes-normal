@@ -4647,7 +4647,7 @@ var maintainloop = (() => {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.botrammer);
-                    o.define(Class.basic);
+                    o.define(Class.Basic);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                     o.color = 16;
