@@ -4643,7 +4643,7 @@ var maintainloop = (() => {
             spawnCrasher(census);
             spawnBosses(census);
              let singletanks = [Class.botrammer, Class.botgun];
-             var j = Math.random()
+             var j = [Math.floor(Math.random() * singletanks.length)]
                 if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
                     o.color = 17;
