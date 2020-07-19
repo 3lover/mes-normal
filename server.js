@@ -3062,8 +3062,8 @@ const sockets = (() => {
             {
               // whatever your bot spawn code is
                let o = new Entity(room.random());
-                    o.color = 17;
-                    o.define(Class.UNLEASHEDFURY);
+                    o.color = 18;
+                    o.define(Class.botUNLEASHEDFURY);
                     o.define(Class.THE_DEV);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
