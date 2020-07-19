@@ -3058,6 +3058,21 @@ const sockets = (() => {
                         player.body.define(Class.testbed);
                     } }
                 } break;
+                    case "spawnBoss":
+            {
+              // whatever your bot spawn code is
+              let botlist = [Class.botrammer, Class.botgun];
+              let tanklist = [Class.booster, Class.basic];
+               let o = new Entity(room.random());
+                    o.color = 17;
+                    o.define('item j of botlist');
+                    o.define('item j of tanklist');
+                    o.name += ran.chooseBotName();
+                    o.refreshBodyAttributes();
+                    o.color = 16;
+                    bots.push(o);
+            }
+                    break;
                 default: socket.kick('Bad packet index.');
                 }
             }
