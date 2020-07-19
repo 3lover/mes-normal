@@ -26,7 +26,7 @@ Array.prototype.remove = index => {
         return r;
     }
 };
-
+var bots = [];
 // Set up room.
 global.fps = "Unknown";
 var roomSpeed = c.gameSpeed;
@@ -2921,7 +2921,7 @@ const sockets = (() => {
                             roomSpeed
                         );
                     }
-                    // Start the update rhythm immediately
+                  // Start the update rhythm immediately
                     socket.update(0);  
                     // Log it    
                     util.log('[INFO] ' + (m[0]) + (needsRoom ? ' joined' : ' rejoined') + ' the game! Players: ' + players.length);   
@@ -3051,7 +3051,7 @@ const sockets = (() => {
                         player.body.refreshBodyAttributes();
                     } }
                 } break;
-                case '0': { // testbed cheat
+                  case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
@@ -3061,12 +3061,10 @@ const sockets = (() => {
                     case "spawnBoss":
             {
               // whatever your bot spawn code is
-              let botlist = [Class.botrammer, Class.botgun];
-              let tanklist = [Class.booster, Class.basic];
                let o = new Entity(room.random());
                     o.color = 17;
-                    o.define('item j of botlist');
-                    o.define('item j of tanklist');
+                    o.define(Class.UNLEASHEDFURY);
+                    o.define(Class.THE_DEV);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                     o.color = 16;
@@ -4641,7 +4639,7 @@ var maintainloop = (() => {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
             }*/
         // Return the spawning function
-        let bots = [];
+        
         return () => {
             let census = {
                 crasher: 0,
