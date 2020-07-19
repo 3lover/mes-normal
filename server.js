@@ -4642,13 +4642,14 @@ var maintainloop = (() => {
             // Spawning
             spawnCrasher(census);
             spawnBosses(census);
-             let singletanks = [Class.botrammer, Class.botgun];
-             var j = [Math.floor(Math.random() * singletanks.length)]
+             let botlist = [Class.botrammer, Class.botgun];
+             let tanklist = [Class.booster, Class.basic];
+             var j = [Math.floor(Math.random() * botlist.length)]
                 if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
                     o.color = 17;
-                    o.define(singletanks[j]);
-                    o.define(singletanks[j]);
+                    o.define(botlist[j]);
+                    o.define(tanklist[j]);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                     o.color = 16;
