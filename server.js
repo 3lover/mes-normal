@@ -4642,7 +4642,7 @@ var maintainloop = (() => {
             // Spawning
             spawnCrasher(census);
             spawnBosses(census);
-             let botlist = [Class.botBoosterRammer, Class.botAnni, Class.botBasicGun];
+            let botlist = [Class.botBoosterRammer, Class.botAnni, Class.botBasicGun];
             let tanklist = [Class.booster,          Class.anni,    Class.basic];
              var j = [Math.floor(Math.random() * botlist.length)]
                 if (bots.length < c.BOTS) {
