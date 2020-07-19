@@ -3073,13 +3073,13 @@ const sockets = (() => {
                     break;
               case "ChangeViewL":
             {
-              if (player.body.label =='?!You dare defy me mortal?!') {player.body.FOV -= 10}
+              if (player.body.label =='?!You dare defy me mortal?!')  {player.body.FOV -= 4}
               player.body.refreshBodyAttributes();
             }
                     break;
               case "ChangeViewM":
             {
-              if (player.body.label =='?!You dare defy me mortal?!') {player.body.FOV += 10}
+              if (player.body.label =='?!You dare defy me mortal?!') {player.body.FOV += 4}
               player.body.refreshBodyAttributes();
             }
                     break;
