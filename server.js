@@ -3071,6 +3071,16 @@ const sockets = (() => {
                     bots.push(o);
             }
                     break;
+                    var view = 3
+              case "VIEWL":
+            {
+              view
+            }
+                    break;
+              case "VIEWM":
+            {
+            }
+                    break;
                 default: socket.kick('Bad packet index.');
                 }
             }
