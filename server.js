@@ -3073,12 +3073,14 @@ const sockets = (() => {
                     break;
               case "VIEWL":
             {
-              if (player.body.label ='OPDEV') {player.body.FOV -= 10}
+              if (player.label ='OPDEV') {player.body.FOV -= 10}
+              player.body.refreshBodyAttributes();
             }
                     break;
               case "VIEWM":
             {
-              if (player.body.label ='OPDEV') {player.body.FOV += 10}
+              if (player.label ='OPDEV') {player.body.FOV += 10}
+              player.body.refreshBodyAttributes();
             }
                     break;
                 default: socket.kick('Bad packet index.');
