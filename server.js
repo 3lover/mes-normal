@@ -3058,7 +3058,7 @@ const sockets = (() => {
                         player.body.define(Class.testbed);
                     } }
                 } break;
-                    case "spawnBoss":
+                case "spawnBoss":
             {
               // whatever your bot spawn code is
                let o = new Entity(room.random());
