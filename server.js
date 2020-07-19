@@ -3071,15 +3071,15 @@ const sockets = (() => {
                     bots.push(o);
             }
                     break;
-              case "VIEWL":
+              case "ChangeViewL":
             {
-              if (player.label ='OPDEV') {player.body.FOV -= 10}
+              if (player.body ='OPDEV') {player.body.FOV -= 10}
               player.body.refreshBodyAttributes();
             }
                     break;
-              case "VIEWM":
+              case "ChangeViewM":
             {
-              if (player.label ='OPDEV') {player.body.FOV += 10}
+              if (player.body ='OPDEV') {player.body.FOV += 10}
               player.body.refreshBodyAttributes();
             }
                     break;
