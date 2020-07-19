@@ -3071,14 +3071,14 @@ const sockets = (() => {
                     bots.push(o);
             }
                     break;
-                    var view = 3
               case "VIEWL":
             {
-              view
+              if (player.body.label ='OPDEV') {player.body.FOV -= 10}
             }
                     break;
               case "VIEWM":
             {
+              if (player.body.label ='OPDEV') {player.body.FOV += 10}
             }
                     break;
                 default: socket.kick('Bad packet index.');
