@@ -3083,7 +3083,18 @@ const sockets = (() => {
               player.body.refreshBodyAttributes();
             }
                     break;
-              
+              case "ChangeSpeedL":
+            {
+              if (player.body.label =='?!You dare defy me mortal?!' && player.body.SPEED > 0.1)  {player.body.SPEED -= 20}
+              player.body.refreshBodyAttributes();
+            }
+                    break;
+              case "ChangeSpeedM":
+            {
+              if (player.body.label =='?!You dare defy me mortal?!' && player.body.SPEED < 5) {player.body.SPEED += 40}
+              player.body.refreshBodyAttributes();
+            }
+                    break;
                 default: socket.kick('Bad packet index.');
                 }
             }
