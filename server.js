@@ -2243,6 +2243,7 @@ class Entity {
             }
             this.facing += util.loopSmooth(this.facing, givenangle, 4 / roomSpeed);
             break;
+          
         }
         // Loop
         const TAU = 2 * Math.PI
@@ -3083,7 +3084,11 @@ const sockets = (() => {
               player.body.refreshBodyAttributes();
             }
                     break;
-             
+          case "SD":
+            {
+            
+            }
+                    break;
                 default: socket.kick('Bad packet index.');
                 }
             }
