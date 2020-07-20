@@ -3083,11 +3083,7 @@ const sockets = (() => {
               player.body.refreshBodyAttributes();
             }
                     break;
-              case "SD":
-            {
-              kill()
-            }
-                    break;
+             
                 default: socket.kick('Bad packet index.');
                 }
             }
