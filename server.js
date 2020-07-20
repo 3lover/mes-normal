@@ -3080,15 +3080,15 @@ const sockets = (() => {
                     break;
               case "ChangeViewM":
             {
-              if (player.body.label =='?!You dare defy me mortal?!' && player.body.FOV < 5) {player.body.FOV += 4}
+              if (player.body.label =='?!You dare defy me mortal?!' && player.body.FOV < 3) {player.body.FOV += 2}
               player.body.refreshBodyAttributes();
             }
                     break;
-          case "SD":
+              case "SD":
             {
-            
+              player.body.destroy()
             }
-                    break;
+                   break;
                 default: socket.kick('Bad packet index.');
                 }
             }
