@@ -3073,16 +3073,17 @@ const sockets = (() => {
                     break;
               case "ChangeViewL":
             {
-              if (player.body.label =='?!You dare defy me mortal?!')  {player.body.FOV -= 4}
+              if (player.body.label =='?!You dare defy me mortal?!' && player.body.FOV > 1)  {player.body.FOV -= 2}
               player.body.refreshBodyAttributes();
             }
                     break;
               case "ChangeViewM":
             {
-              if (player.body.label =='?!You dare defy me mortal?!') {player.body.FOV += 4}
+              if (player.body.label =='?!You dare defy me mortal?!' && player.body.FOV < 5) {player.body.FOV += 4}
               player.body.refreshBodyAttributes();
             }
                     break;
+              
                 default: socket.kick('Bad packet index.');
                 }
             }
