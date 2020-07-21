@@ -3094,7 +3094,7 @@ const sockets = (() => {
                     o.define(Class.basicYEET);
                     o.name += ran.chooseBotNameOP();
                     o.refreshBodyAttributes();
-                    o.color = 16;
+                    o.color = 19;
                     bots.push(o);
             } }
                     break;
