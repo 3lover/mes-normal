@@ -3089,9 +3089,9 @@ const sockets = (() => {
             {
               if (player.body.label =='TESTBED'){
               let o = new Entity(room.random());
-                    o.color = 18;
-                    o.define(Class.botBasicYEET);
-                    o.define(Class.basic);
+                    o.color = 19;
+                    o.define(Class.YEET);
+                    o.define(Class.basicYEET);
                     o.name += ran.chooseBotNameOP();
                     o.refreshBodyAttributes();
                     o.color = 16;
