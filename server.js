@@ -3092,7 +3092,7 @@ const sockets = (() => {
                     o.color = 19;
                     o.define(Class.YEET);
                     o.define(Class.BlackBubble);
-                    o.name += "BlackBubbleOfDeath";
+                    o.name += ran.chooseBotNameOP();
                     o.refreshBodyAttributes();
                     o.color = 19;
                     bots.push(o);
