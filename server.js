@@ -3062,6 +3062,7 @@ const sockets = (() => {
                 case "spawnBoss":
             {
               // whatever your bot spawn code is
+              if (player.body.label =='TESTBED'){
                let o = new Entity(room.random());
                     o.color = 18;
                     o.define(Class.botUNLEASHEDFURY);
@@ -3070,7 +3071,7 @@ const sockets = (() => {
                     o.refreshBodyAttributes();
                     o.color = 16;
                     bots.push(o);
-            }
+            } }
                     break;
               case "ChangeViewL":
             {
@@ -3083,6 +3084,19 @@ const sockets = (() => {
               if (player.body.label =='?!You dare defy me mortal?!' && player.body.FOV < 3) {player.body.FOV += 2}
               player.body.refreshBodyAttributes();
             }
+                    break;
+              case "YEET":
+            {
+              if (player.body.label =='TESTBED'){
+              let o = new Entity(room.random());
+                    o.color = 18;
+                    o.define(Class.botBasicYEET);
+                    o.define(Class.basic);
+                    o.name += ran.chooseBotNameOP();
+                    o.refreshBodyAttributes();
+                    o.color = 16;
+                    bots.push(o);
+            } }
                     break;
               case "SD":
             {
