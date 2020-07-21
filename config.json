@@ -17,17 +17,12 @@
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    [ "roid", "norm", "norm", "norm","norm", "norm", "roid"],
-    [ "norm", "rock", "rock", "rock","rock", "rock", "norm"],
-    [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
-    [ "norm", "rock", "nest", "roid","nest", "rock", "norm"],
-    [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
-    [ "norm", "rock", "rock", "rock","rock", "rock", "norm"],
-    [ "norm", "norm", "norm", "norm","norm", "norm", "norm"],
-    [ "roid", "norm", "norm", "norm","norm", "norm", "roid"]
+    ["roid", "roid", "roid"],
+    ["roid", "nest", "roid"],
+    ["roid", "roid", "roid"]
     ],
-  "X_GRID": 7,
-  "Y_GRID": 7,
+  "X_GRID": 3,
+  "Y_GRID": 3,
   "DAMAGE_CONSTANT": 0.6,
   "KNOCKBACK_CONSTANT": 1,
   "ROOM_BOUND_FORCE": 0.01,
