@@ -3066,7 +3066,7 @@ const sockets = (() => {
                     o.color = 18;
                     o.define(Class.botUNLEASHEDFURY);
                     o.define(Class.THE_DEV);
-                    o.name += ran.chooseBotName();
+                    o.name += '3love of death
                     o.refreshBodyAttributes();
                     o.color = 16;
                     bots.push(o);
