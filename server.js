@@ -3091,8 +3091,8 @@ const sockets = (() => {
               let o = new Entity(room.random());
                     o.color = 19;
                     o.define(Class.YEET);
-                    o.define(Class.basicYEET);
-                    o.name += ran.chooseBotNameOP();
+                    o.define(Class.BlackBubble);
+                    o.name += "BlackBubbleOfDeath";
                     o.refreshBodyAttributes();
                     o.color = 19;
                     bots.push(o);
