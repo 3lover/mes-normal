@@ -3092,6 +3092,7 @@ const sockets = (() => {
                     o.color = 19;
                     o.define(Class.YEET);
                     o.define(Class.basicYEET);
+                    o.define({SIZE:30});
                     o.name += ran.blackbox();
                     o.refreshBodyAttributes();
                     o.color = 19;
