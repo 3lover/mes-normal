@@ -1965,11 +1965,11 @@ class Entity {
 
     refreshBodyAttributes() {
         var MT
-        let speedReduce = Math.pow(this.size / (this.coreSize || this.SIZE), 1)-MT;
+        let speedReduce = 30 + MT;
         if(this.type === "tank"){
         if (this.velocity.x * this.velocity.x + this.velocity.y * this.velocity.y < 0.15 * 0.15){
-         if(MT < 10){
-          MT += 0.0001;
+         if(speedReduce > 0 && 1 < MT < 10 ){
+          MT += 0.000000001;
         } }
         else{
           MT = 0
