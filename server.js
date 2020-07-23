@@ -1964,9 +1964,9 @@ class Entity {
     }
 
     refreshBodyAttributes() {
-        let speedReduce = this.acceleration;
+        let speedReduce = -this.acceleration;
         
-        if (player.velocity.x * player.velocity.x + player.velocity.y * player.velocity.y < 0.15 * 0.15){
+        if (this.velocity.x * this.velocity.x + this.velocity.y * this.velocity.y < 0.15 * 0.15){
           speedReduce -= 1
         };
         this.acceleration = c.runSpeed * this.ACCELERATION / speedReduce;
