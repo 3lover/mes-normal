@@ -1964,11 +1964,14 @@ class Entity {
     }
 
     refreshBodyAttributes() {
-        let speedReduce = this.acceleration;
+        let speedReduce = Math.pow(this.size / (this.coreSize || this.SIZE), 1);
         if(this.type === "tank")
-        if (this.velocity.x * this.velocity.x + this.velocity.y * this.velocity.y < 0.15 * 0.15){
+        if (this.velocity.x * this.velocity.x + this.velocity.y * this.velocity.y < 0.15 * 0.15  && speedReduce<1){
           speedReduce -= 1
-        };
+        }
+        else{
+          
+        }
         this.acceleration = c.runSpeed * this.ACCELERATION / speedReduce;
         if (this.settings.reloadToAcceleration) this.acceleration *= this.skill.acl;
 
