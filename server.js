@@ -1962,10 +1962,9 @@ class Entity {
             this.mockup = set.mockup;
         }
     }
-
+    var MT = 0
     refreshBodyAttributes() {
-        var MT
-        let speedReduce = 30 + MT;
+        let speedReduce = 30 - MT;
         if(this.type === "tank"){
         if (this.velocity.x * this.velocity.x + this.velocity.y * this.velocity.y < 0.15 * 0.15){
          if(speedReduce > 0 && 1 < MT < 10 ){
