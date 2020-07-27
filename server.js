@@ -1962,7 +1962,6 @@ class Entity {
             this.mockup = set.mockup;
         }
     }
-    var MT = 0
     refreshBodyAttributes() {
         let speedReduce = 30 - MT;
         if(this.type === "tank"){
