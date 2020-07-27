@@ -11,4 +11,9 @@
     ["roid", "roid", "roid"]
 
 
-    ["roid, roid, rock, rock, norm, norm"]
+    ["bas3", "roid", "roid", "rock", "rock", "norm"],
+    ["roid", "roid", "rock", "rock", "norm", "rock"],
+    ["roid", "rock", "nest", "nest", "rock", "rock"],
+    ["rock", "rock", "nest", "nest", "rock", "roid"],
+    ["rock", "norm", "rock", "rock", "roid", "roid"],
+    ["norm", "rock", "rock", "roid", "roid", "bas1"]
