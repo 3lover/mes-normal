@@ -1807,9 +1807,6 @@ class Entity {
         if (set.IS_SMASHER != null) { 
             this.settings.reloadToAcceleration = set.IS_SMASHER; 
         }
-        if (set.JUMP_SMASHER != null) { 
-            this.settings.accelerationToJumpRate = set.JUMP_SMASHER; 
-        }
         if (set.STAT_NAMES != null) { 
             this.settings.skillNames = set.STAT_NAMES; 
         }
