@@ -25,8 +25,8 @@
     [ "norm", "rock", "rock", "rock","rock", "rock", "norm"],
     [ "roid", "norm", "norm", "norm","norm", "norm", "roid"]
     ],
-  "X_GRID": 6,
-  "Y_GRID": 6,
+  "X_GRID": 7,
+  "Y_GRID": 7,
   "DAMAGE_CONSTANT": 0.6,
   "KNOCKBACK_CONSTANT": 1,
   "ROOM_BOUND_FORCE": 0.01,
