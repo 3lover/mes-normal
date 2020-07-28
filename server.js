@@ -4426,7 +4426,6 @@ var gameloop = (() => {
                         n.poisonTime = 20
                         n.poisonedBy = my.master
                       }
-                    }
                   /*************   freezing  ***********/
                       if (n.freeze) {
                         my.frozen = true
@@ -4642,13 +4641,14 @@ var freezeLoop = (() => {
             o.define(Class['freezeEffect'])
  
             if (!element.invuln) {
-              element.speed.amount -= element.freezeLevel
+              element.velocity.amount -= element.freezeLevel
             }
  
             element.freezeTime -= 1
             if (element.freezeTime <= 0) element.frozen = false
             }
       }
+    )}
             
     return () => {
         // run the poison
