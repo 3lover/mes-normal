@@ -1562,6 +1562,13 @@ class Entity {
         this.killCount = { solo: 0, assists: 0, bosses: 0, killers: [], };
         this.creationTime = (new Date()).getTime();
         // Inheritance
+        this.poisoned = false
+        this.poison = false
+        this.poisonedBy = -1
+        this.poisonLevel = 0
+        this.poisonToApply = 0
+        this.showpoison = false
+       	this.poisonTimer = 0
         this.master = master;
         this.source = this;
         this.parent = this;
@@ -1776,6 +1783,18 @@ class Entity {
         }
         if (set.OBSTACLE != null) { 
             this.settings.obstacle = set.OBSTACLE; 
+        }
+        if (set.POISON != null) {
+          this.poison = set.POISON
+        }
+        if (set.POISONED != null) {
+          this.poisoned = set.POISONED
+        }
+        if (set.POISON_TO_APPLY != null) {
+          this.poisonToApply = set.POISON_TO_APPLY
+        }
+        if (set.SHOWPOISON != null) {
+          this.showpoison = set.SHOWPOISON
         }
         if (set.NECRO != null) { 
             this.settings.isNecromancer = set.NECRO; 
@@ -4379,6 +4398,19 @@ var gameloop = (() => {
                             my.damageRecieved += damage._n * deathFactor._n;
                             n.damageRecieved += damage._me * deathFactor._me;
                         }
+                      /*************   POISON  ***********/
+                      if (n.poison) {
+                        my.poisoned = true
+                        my.poisonedLevel = n.poisionToApply
+                        my.poisonTime = 20
+                        my.poisonedBy = n.master
+                      }
+                      if (my.poison) {
+                        n.poisoned = true
+                        n.poisonedLevel = my.poisionToApply
+                        n.poisonTime = 20
+                        n.poisonedBy = my.master
+                      }
                     }
                     /************* DO MOTION ***********/    
                     if (nIsFirmCollide < 0) {
@@ -4551,6 +4583,57 @@ var gameloop = (() => {
     //setTimeout(moveloop, 1000 / roomSpeed / 30 - delta); 
 })();
 // A less important loop. Runs at an actual 5Hz regardless of game speed.
+var poisonLoop = (() => {
+    // Fun stuff, like RAINBOWS :D
+    function poison(my) {
+      entities.forEach(function(element) {
+        if (element.showpoison) {
+            let x = element.size + 10
+            let y = element.size + 10
+            Math.random() < 0.5 ? x *= -1 : x
+            Math.random() < 0.5 ? y *= -1 : y
+            Math.random() < 0.5 ? x *= Math.random() + 1 : x
+            Math.random() < 0.5 ? y *= Math.random() + 1 : y
+            var o = new Entity({
+            x: element.x + x,
+            y: element.y + y
+            })
+            o.define(Class['poisonEffect'])
+        }
+		if (element.poisoned && element.type == 'tank') {
+            let x = element.size + 10
+            let y = element.size + 10
+            Math.random() < 0.5 ? x *= -1 : x
+            Math.random() < 0.5 ? y *= -1 : y
+            Math.random() < 0.5 ? x *= Math.random() + 1 : x
+            Math.random() < 0.5 ? y *= Math.random() + 1 : y
+            var o = new Entity({
+            x: element.x + x,
+            y: element.y + y
+            })
+            o.define(Class['poisonEffect'])
+ 
+            if (!element.invuln) {
+              element.health.amount -= element.health.max / (55 - element.poisonLevel)
+              element.shield.amount -= element.shield.max / (35 - element.poisonLevel)
+            }
+ 
+            element.poisonTime -= 1
+            if (element.poisonTime <= 0) element.poisoned = false
+ 
+            if (element.health.amount <= 0 && element.poisonedBy != undefined && element.poisonedBy.skill != undefined) {
+              element.poisonedBy.skill.score += Math.ceil(util.getJackpot(element.poisonedBy.skill.score));
+              element.poisonedBy.sendMessage('You killed ' + element.name + ' with poison.'); 
+              element.sendMessage('You have been killed by ' + element.poisonedBy.name + ' with poison.')
+            }
+          }
+      }
+    )}
+    return () => {
+        // run the poison
+        poison()
+    };
+})();
 var maintainloop = (() => {
     // Place obstacles
     function placeRoids() {
@@ -5016,3 +5099,5 @@ let websockets = (() => {
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
+setInterval(poisonLoop, room.cycleSpeed * 7)
+
