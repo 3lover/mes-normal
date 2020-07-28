@@ -4428,7 +4428,7 @@ var gameloop = (() => {
                       }
                     }
                   /*************   freezing  ***********/
-                      if (n.frozen) {
+                      if (n.freeze) {
                         my.frozen = true
                         my.freezeLevel = n.poisionToApply
                         my.freezeTime = 20
