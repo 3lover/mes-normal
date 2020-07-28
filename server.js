@@ -4648,8 +4648,8 @@ var freezeLoop = (() => {
             element.freezeTime -= 1
             if (element.freezeTime <= 0) element.frozen = false
             }
-          }
-    )}
+      }
+            
     return () => {
         // run the poison
         freeze()
