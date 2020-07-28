@@ -4615,7 +4615,7 @@ var freezeLoop = (() => {
     // Fun stuff, like RAINBOWS :D
     function freeze(my) {
       entities.forEach(function(element) {
-        if (element.showpoison) {
+        if (element.showfreeze) {
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4626,7 +4626,7 @@ var freezeLoop = (() => {
             x: element.x + x,
             y: element.y + y
             })
-            o.define(Class['poisonEffect'])
+            o.define(Class['freezeEffect'])
         }
 		if (element.frozen && element.type == 'tank') {
             let x = element.size + 10
