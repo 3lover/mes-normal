@@ -1569,12 +1569,6 @@ class Entity {
         this.poisonToApply = 0
         this.showpoison = false
        	this.poisonTimer = 0
-        this.frozen = false
-        this.freeze = false
-        this.freezeLevel = 0
-        this.freezeToApply = 0
-        this.showfreeze = false
-       	this.freezeTimer = 0
         this.master = master;
         this.source = this;
         this.parent = this;
@@ -1798,15 +1792,6 @@ class Entity {
         }
         if (set.POISON_TO_APPLY != null) {
           this.poisonToApply = set.POISON_TO_APPLY
-        }
-         if (set.FREEZE != null) {
-          this.freeze = set.FREEZE
-        }
-        if (set.FROZEN != null) {
-          this.frozen = set.FROZEN
-        }
-        if (set.FREEZE_TO_APPLY != null) {
-          this.freezeToApply = set.FREEZE_TO_APPLY
         }
         if (set.NECRO != null) { 
             this.settings.isNecromancer = set.NECRO; 
@@ -4423,19 +4408,6 @@ var gameloop = (() => {
                         n.poisonTime = 20
                         n.poisonedBy = my.master
                       }
-                  /*************   freezing  ***********/
-                      if (n.freeze) {
-                        my.frozen = true
-                        my.freezeLevel = n.poisionToApply
-                        my.freezeTime = 20
-                        my.frozenBy = n.master
-                      }
-                      if (my.freeze) {
-                        n.frozen = true
-                        n.freezeLevel = my.poisionToApply
-                        n.freezeTime = 20
-                        n.frozenBy = my.master
-                      }
                     }
                     /************* DO MOTION ***********/    
                     if (nIsFirmCollide < 0) {
@@ -4608,56 +4580,7 @@ var gameloop = (() => {
     //setTimeout(moveloop, 1000 / roomSpeed / 30 - delta); 
 })();
 // A less important loop. Runs at an actual 5Hz regardless of game speed.
-var freezeLoop = (() => {
-    // Fun stuff, like RAINBOWS :D
-    function freeze(my) {
-      entities.forEach(function(element) {
-        if (element.showfreeze) {
-            this.body.sendMessage("message");
-            let x = element.size + 10
-            let y = element.size + 10
-            Math.random() < 0.5 ? x *= -1 : x
-            Math.random() < 0.5 ? y *= -1 : y
-            Math.random() < 0.5 ? x *= Math.random() + 1 : x
-            Math.random() < 0.5 ? y *= Math.random() + 1 : y
-            var o = new Entity({
-            x: element.x + x,
-            y: element.y + y
-            })
-            o.define(Class['freezeEffect'])
-        }
-		if (element.frozen && element.type == 'tank') {
-           this.body.sendMessage("message");
-            let x = element.size + 10
-            let y = element.size + 10
-            Math.random() < 0.5 ? x *= -1 : x
-            Math.random() < 0.5 ? y *= -1 : y
-            Math.random() < 0.5 ? x *= Math.random() + 1 : x
-            Math.random() < 0.5 ? y *= Math.random() + 1 : y
-            var o = new Entity({
-            x: element.x + x,
-            y: element.y + y
-            })
-            o.define(Class['freezeEffect'])
- 
-            if (!element.invuln) {
-               this.body.sendMessage("message");
-              element.body.velocity.x *= element.freezeLevel
-             element.body.velocity.y *= element.freezeLevel              
-            }
 
-            element.freezeTime -= 1
-            if (element.freezeTime <= 0) element.frozen = false 
-            
-            }
-      }
-    )}
-            
-    return () => {
-        // run the freeze
-        freeze()
-    };
-})();
 var poisonLoop = (() => {
     // Fun stuff, like RAINBOWS :D
     function poison(my) {
@@ -5175,5 +5098,4 @@ setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
 setInterval(poisonLoop, room.cycleSpeed * 7)
-setInterval(freezeLoop, room.cycleSpeed * 7)
 
