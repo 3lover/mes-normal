@@ -4613,7 +4613,7 @@ var freezeLoop = (() => {
     function freeze(my) {
       entities.forEach(function(element) {
         if (element.showfreeze) {
-            sockets.broadcast("fired")
+            this.body.sendMessage("message");
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4627,7 +4627,7 @@ var freezeLoop = (() => {
             o.define(Class['freezeEffect'])
         }
 		if (element.frozen && element.type == 'tank') {
-           sockets.broadcast("fired")
+           this.body.sendMessage("message");
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4641,7 +4641,7 @@ var freezeLoop = (() => {
             o.define(Class['freezeEffect'])
  
             if (!element.invuln) {
-              sockets.broadcast("fired")
+               this.body.sendMessage("message");
               element.body.velocity.x *= element.freezeLevel
              element.body.velocity.y *= element.freezeLevel              
             }
