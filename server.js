@@ -1808,9 +1808,6 @@ class Entity {
         if (set.FREEZE_TO_APPLY != null) {
           this.freezeToApply = set.FREEZE_TO_APPLY
         }
-        if (set.SHOWPOISON != null) {
-          this.showpoison = set.SHOWPOISON
-        }
         if (set.NECRO != null) { 
             this.settings.isNecromancer = set.NECRO; 
         }
@@ -1995,7 +1992,8 @@ class Entity {
     }
     refreshBodyAttributes() {
         let speedReduce = Math.pow(this.size / (this.coreSize || this.SIZE), 1);
-  
+         if (!element.invuln) {
+           
         this.acceleration = c.runSpeed * this.ACCELERATION / speedReduce;
         if (this.settings.reloadToAcceleration) this.acceleration *= this.skill.acl;
 
@@ -4431,6 +4429,7 @@ var gameloop = (() => {
                         my.frozen = true
                         my.freezeLevel = n.poisionToApply
                         my.freezeTime = 20
+                        my.frozenBy = n.master
                       }
                       if (my.freeze) {
                         n.frozen = true
