@@ -1992,9 +1992,7 @@ class Entity {
     }
     refreshBodyAttributes() {
         let speedReduce = Math.pow(this.size / (this.coreSize || this.SIZE), 1);
-         if (!this.frozen) {
-           speedReduce += this.freezelevel
-         }
+         
         this.acceleration = c.runSpeed * this.ACCELERATION / speedReduce;
         if (this.settings.reloadToAcceleration) this.acceleration *= this.skill.acl;
 
@@ -4651,7 +4649,7 @@ var freezeLoop = (() => {
     )}
             
     return () => {
-        // run the poison
+        // run the freeze
         freeze()
     };
 })();
