@@ -1793,6 +1793,9 @@ class Entity {
         if (set.POISON_TO_APPLY != null) {
           this.poisonToApply = set.POISON_TO_APPLY
         }
+        if (set.SHOWPOISON != null) {
+          this.showpoison = set.SHOWPOISON
+        }
         if (set.NECRO != null) { 
             this.settings.isNecromancer = set.NECRO; 
         }
