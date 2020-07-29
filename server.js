@@ -1800,13 +1800,13 @@ class Entity {
           this.poisonToApply = set.POISON_TO_APPLY
         }
          if (set.FREEZE != null) {
-          this.poison = set.POISON
+          this.freeze = set.FREEZE
         }
         if (set.FROZEN != null) {
-          this.poisoned = set.POISONED
+          this.frozen = set.FROZEN
         }
         if (set.FREEZE_TO_APPLY != null) {
-          this.poisonToApply = set.POISON_TO_APPLY
+          this.freezeToApply = set.FREEZE_TO_APPLY
         }
         if (set.SHOWPOISON != null) {
           this.showpoison = set.SHOWPOISON
