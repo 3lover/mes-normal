@@ -1993,7 +1993,8 @@ class Entity {
     refreshBodyAttributes() {
         let speedReduce = Math.pow(this.size / (this.coreSize || this.SIZE), 1);
          if (!element.invuln) {
-           
+           speedReduce += element.freezelevel
+         }
         this.acceleration = c.runSpeed * this.ACCELERATION / speedReduce;
         if (this.settings.reloadToAcceleration) this.acceleration *= this.skill.acl;
 
