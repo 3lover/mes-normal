@@ -4639,8 +4639,8 @@ var freezeLoop = (() => {
             o.define(Class['freezeEffect'])
  
             if (!element.invuln) {
-              element.velocity.x -= element.freezeLevel
-              element.velocity.y -= element.freezeLevel
+              if(element.velocity.x <= 0){element.velocity.x -= element.freezeLevel}
+              if(element.velocity.y <= 0){element.velocity.y -= element.freezeLevel}
             }
  
             element.freezeTime -= 1
