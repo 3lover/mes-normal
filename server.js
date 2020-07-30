@@ -4734,10 +4734,20 @@ var maintainloop = (() => {
         };
     })();
     let spawnCrasher = census => {
-        if (ran.chance(0.003)) {
+        if (ran.chance(0.0005)) {
             let spot, i = 30;
             do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (ran.dice(80)) ? ran.choose([Class.sentryGun, Class.sentrySwarm, Class.sentryTrap]) : ran.choose([Class.sentryGun, Class.sentrySwarm, Class.sentryTrap]);
+            let o = new Entity(spot);
+                o.define(type);
+                o.team = -100;
+        }
+    };
+    let spawnToxic = census => {
+        if (ran.chance(0.003)) {
+            let spot, i = 30;
+            do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (Class.toxicrammer)
             let o = new Entity(spot);
                 o.define(type);
                 o.team = -100;
@@ -4772,6 +4782,7 @@ var maintainloop = (() => {
             // Spawning
             spawnCrasher(census);
             spawnBosses(census);
+            spawnToxic(census);
             let botlist = [Class.botBoosterRammer, Class.botAnni, Class.botBasicGun];
             let tanklist = [Class.booster,          Class.anni,    Class.basic];
              var j = [Math.floor(Math.random() * botlist.length)]
