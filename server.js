@@ -4744,7 +4744,7 @@ var maintainloop = (() => {
         }
     };
     let spawnToxic = census => {
-        if (ran.chance(0.3)) {
+        if (ran.chance(0.003)) {
             let spot, i = 30;
             do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.toxicrammer)
