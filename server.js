@@ -1458,7 +1458,7 @@ var bringToLife = (() => {
           if(my.invisible[2] <= my.alpha){  
           my.alpha = Math.max(0.01, my.alpha - my.invisible[1]);
           }
-                  if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved)
+                  if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved&& !my.invisible[0] == 0)
                         my.alpha = Math.min(1, my.alpha + my.invisible[0]);
             } else my.alpha = 1;
         // So we start with my master's thoughts and then we filter them down through our control stack
