@@ -2000,7 +2000,7 @@ class Entity {
         this.health.resist = 1 - 1 / Math.max(1, this.RESIST + this.skill.brst);
 
         this.shield.set(
-            (((this.settings.healthWithLevel) ? 0.2 * this.skill.level : 0) + this.SHIELD) * (this.skill.shi/5), 
+            (((this.settings.healthWithLevel) ? 0.2 * this.skill.level : 0) + this.SHIELD) * (this.skill.shi/3), 
             Math.max(0, ((((this.settings.healthWithLevel) ? 0.006 * this.skill.level : 0) + 1) * (this.REGEN)) * (this.skill.rgn/5))
         );
         
