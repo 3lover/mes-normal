@@ -4607,7 +4607,7 @@ var poisonLoop = (() => {
             })
             o.define(Class['poisonEffect'])
         }
-		if (element.poisoned && element.type == 'tank') {
+		if (element.poisoned) {// && element.type == 'tank'
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
