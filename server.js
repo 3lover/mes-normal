@@ -45,7 +45,7 @@ const room = {
         square: c.WIDTH * c.HEIGHT / 100000000,
         linear: Math.sqrt(c.WIDTH * c.HEIGHT / 100000000),
     },
-    maxFood: c.WIDTH * c.HEIGHT / 20000 * c.FOOD_AMOUNT,
+    maxFood: c.WIDTH * c.HEIGHT / 60000 * c.FOOD_AMOUNT,
     isInRoom: location => {
         return location.x >= 0 && location.x <= c.WIDTH && location.y >= 0 && location.y <= c.HEIGHT
     },    
