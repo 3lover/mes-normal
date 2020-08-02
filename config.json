@@ -60,8 +60,8 @@
   "SKILL_LEAK": 0,
   "STEALTH": 4,
   "MIN_SPEED": 0.001,
-  "FOOD_AMOUNT": 0.4, 
+  "FOOD_AMOUNT": 0.2, 
   "SKILL_BOOST": 5,
-  "BOTS": 0,
+  "BOTS": 2,
   "GLASS_HEALTH_FACTOR": 2
 }
