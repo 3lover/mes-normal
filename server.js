@@ -1465,7 +1465,7 @@ var bringToLife = (() => {
       if(my.invisible[0] == 2){
         my.alpha = my.invisible[2]
       } 
-     /* if(my.invisible[0] == 3){
+      if(my.invisible[0] == 3){
           if (hit == 1){
           my.alpha = 1
           }else{
@@ -1473,7 +1473,7 @@ var bringToLife = (() => {
           my.alpha = Math.max(0.01, my.alpha - my.invisible[1])
        }
      }
-     }*/ 
+     } 
       };
       hit = 0
         // So we start with my master's thoughts and then we filter them down through our control stack
