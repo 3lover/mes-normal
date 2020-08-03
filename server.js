@@ -1455,7 +1455,7 @@ var bringToLife = (() => {
         }
         // Invisibility
         if (my.invisible[1]) {
-          if(my.invisible[2] <= my.alpha){  
+          if(my.invisible[2] <= my.alpha && my.alpha >= 0){  
           my.alpha = Math.max(0.01, my.alpha - my.invisible[1]);
           }
                   if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved)
