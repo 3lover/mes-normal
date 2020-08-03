@@ -1465,10 +1465,10 @@ var bringToLife = (() => {
         my.alpha = my.invisible[2]
       }
       if(my.invisible[0] == 3){
-        if (! my.damageRecieved)
+          if (my.damageRecieved){
           my.alpha = 1
-      }else my.alpha = my
-      }
+     }
+      };
         // So we start with my master's thoughts and then we filter them down through our control stack
         my.controllers.forEach(AI => {
             let a = AI.think(b);
