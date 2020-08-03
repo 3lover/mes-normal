@@ -1464,7 +1464,7 @@ var bringToLife = (() => {
             } else my.alpha = 1;}
       if(my.invisible[0] == 2){
         my.alpha = my.invisible[2]
-      } 
+      }
       if(my.invisible[0] == 3){
           if (hit == 1){
           my.alpha = 1
