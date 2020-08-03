@@ -1468,11 +1468,11 @@ var bringToLife = (() => {
       if(my.invisible[0] == 3){
           if (hit == 1){
           my.alpha = 1
-          }
-     }else{
+          }else{
        if(my.invisible[2] <= my.alpha && my.alpha >= 0){  
           my.alpha = Math.max(0.01, my.alpha - my.invisible[1])
        }
+     }
      } 
       };
       hit = 0
