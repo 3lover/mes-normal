@@ -3,7 +3,7 @@
 /*jshint -W061 */
 /*global goog, Map, let */
 "use strict";
-
+var hit = 0;
 // General requires
 require('google-closure-library');
 goog.require('goog.structs.PriorityQueue');
@@ -1454,16 +1454,28 @@ var bringToLife = (() => {
             my.range -= 1;
         }
         // Invisibility
-        if (my.invisible[1]) {
-          if(my.invisible[2] <= my.alpha){  
+      if (my.invisible[1]) {
+         if(my.invisible[2] <= my.alpha && my.alpha >= 0){  
           my.alpha = Math.max(0.01, my.alpha - my.invisible[1]);
           }
-                  if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved)
+                 if(!(my.invisible[0]>=2)){
+        if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved){
                         my.alpha = Math.min(1, my.alpha + my.invisible[0]);                    
-            } else my.alpha = 1;
+            } else my.alpha = 1;}
       if(my.invisible[0] == 2){
         my.alpha = my.invisible[2]
       }
+      if(my.invisible[0] == 3){
+          if (hit == 1){
+          my.alpha = 1
+          }else{
+       if(my.invisible[2] <= my.alpha && my.alpha >= 0){  
+          my.alpha = Math.max(0.01, my.alpha - my.invisible[1])
+       }
+     }
+     } 
+      };
+      hit = 0
         // So we start with my master's thoughts and then we filter them down through our control stack
         my.controllers.forEach(AI => {
             let a = AI.think(b);
@@ -2360,6 +2372,7 @@ class Entity {
                 let shieldDamage = this.shield.getDamage(this.damageRecieved);
                 this.damageRecieved -= shieldDamage;
                 this.shield.amount -= shieldDamage;
+                if(shieldDamage > 0.1){hit = 1}
             }
         }
         // Health damage 
@@ -2367,9 +2380,9 @@ class Entity {
             let healthDamage = this.health.getDamage(this.damageRecieved);
             this.blend.amount = 1;
             this.health.amount -= healthDamage;
+            if(healthDamage > 0.1){hit = 1}
         }
         this.damageRecieved = 0;
-
         // Check for death
         if (this.isDead()) {
             // Initalize message arrays
