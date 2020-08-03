@@ -3,7 +3,7 @@
 /*jshint -W061 */
 /*global goog, Map, let */
 "use strict";
-var hit = 1;
+var hit = 0;
 // General requires
 require('google-closure-library');
 goog.require('goog.structs.PriorityQueue');
@@ -1458,7 +1458,7 @@ var bringToLife = (() => {
           if(my.invisible[2] <= my.alpha && my.alpha >= 0){  
           my.alpha = Math.max(0.01, my.alpha - my.invisible[1]);
           }
-                  if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved)
+                  if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || hit == 1)
                         my.alpha = Math.min(1, my.alpha + my.invisible[0]);                    
             } else my.alpha = 1;
       if(my.invisible[0] == 2){
@@ -1468,7 +1468,7 @@ var bringToLife = (() => {
           if (hit == 1){
           my.alpha = 1
           hit = 0
-     }else{my.alpha = my.invisible[2]}
+     }
       };
         // So we start with my master's thoughts and then we filter them down through our control stack
         my.controllers.forEach(AI => {
