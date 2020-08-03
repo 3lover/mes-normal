@@ -3,7 +3,7 @@
 /*jshint -W061 */
 /*global goog, Map, let */
 "use strict";
-
+var hit = 1;
 // General requires
 require('google-closure-library');
 goog.require('goog.structs.PriorityQueue');
@@ -1465,9 +1465,9 @@ var bringToLife = (() => {
         my.alpha = my.invisible[2]
       }
       if(my.invisible[0] == 3){
-          if (my.hit == 1){
+          if (hit == 1){
           my.alpha = 1
-          this.hit = 0
+          hit = 0
      }else{my.alpha = my.invisible[2]}
       };
         // So we start with my master's thoughts and then we filter them down through our control stack
@@ -1642,7 +1642,6 @@ class Entity {
         this.vfacing = 0;
         this.range = 0;
         this.damageRecieved = 0;
-        this.hit = 1;
         this.stepRemaining = 1;
         this.x = position.x;
         this.y = position.y;
@@ -2367,7 +2366,7 @@ class Entity {
                 let shieldDamage = this.shield.getDamage(this.damageRecieved);
                 this.damageRecieved -= shieldDamage;
                 this.shield.amount -= shieldDamage;
-                if(shieldDamage > 0){this.hit = 1}
+                if(shieldDamage > 0){hit = 1}
             }
         }
         // Health damage 
@@ -2375,7 +2374,7 @@ class Entity {
             let healthDamage = this.health.getDamage(this.damageRecieved);
             this.blend.amount = 1;
             this.health.amount -= healthDamage;
-            if(healthDamage > 0){this.hit = 1}
+            if(healthDamage > 0){hit = 1}
         }
       this.damageRecieved = 0;
         // Check for death
