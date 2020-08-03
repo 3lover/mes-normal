@@ -2382,7 +2382,7 @@ class Entity {
             this.health.amount -= healthDamage;
             if(healthDamage > 0.1){hit = 1}
         }
-      this.damageRecieved = 0;
+        this.damageRecieved = 0;
         // Check for death
         if (this.isDead()) {
             // Initalize message arrays
