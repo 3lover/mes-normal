@@ -1454,22 +1454,22 @@ var bringToLife = (() => {
             my.range -= 1;
         }
         // Invisibility
-        if (my.invisible[1]) {
+      if (my.invisible[1]) {
           if(my.invisible[2] <= my.alpha && my.alpha >= 0){  
           my.alpha = Math.max(0.01, my.alpha - my.invisible[1]);
           }
-                  if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved == true)
+                  if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved)
                         my.alpha = Math.min(1, my.alpha + my.invisible[0]);                    
             } else my.alpha = 1;
       if(my.invisible[0] == 2){
         my.alpha = my.invisible[2]
       }
       if(my.invisible[0] == 3){
-          if (my.hit == true){
+          if (this.hit == 1){
           my.alpha = 1
+          this.hit = 0
      }
       };
-      this.hit = false;
         // So we start with my master's thoughts and then we filter them down through our control stack
         my.controllers.forEach(AI => {
             let a = AI.think(b);
@@ -2367,6 +2367,7 @@ class Entity {
                 let shieldDamage = this.shield.getDamage(this.damageRecieved);
                 this.damageRecieved -= shieldDamage;
                 this.shield.amount -= shieldDamage;
+                if(shieldDamage > 0){this.hit = 1}
             }
         }
         // Health damage 
@@ -2374,8 +2375,8 @@ class Entity {
             let healthDamage = this.health.getDamage(this.damageRecieved);
             this.blend.amount = 1;
             this.health.amount -= healthDamage;
+            if(healthDamage > 0){this.hit = 1}
         }
-      if (this.damageRecieved !== 0){this.hit = true;}else{this.hit = false;}
       this.damageRecieved = 0;
 
         // Check for death
