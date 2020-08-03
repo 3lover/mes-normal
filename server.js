@@ -1465,10 +1465,10 @@ var bringToLife = (() => {
         my.alpha = my.invisible[2]
       }
       if(my.invisible[0] == 3){
-          if (this.hit == 1){
+          if (my.hit == 1){
           my.alpha = 1
           this.hit = 0
-     }
+     }else{my.alpha = my.invisible[2]}
       };
         // So we start with my master's thoughts and then we filter them down through our control stack
         my.controllers.forEach(AI => {
@@ -1642,7 +1642,7 @@ class Entity {
         this.vfacing = 0;
         this.range = 0;
         this.damageRecieved = 0;
-        this.hit = false;
+        this.hit = 1;
         this.stepRemaining = 1;
         this.x = position.x;
         this.y = position.y;
@@ -2378,7 +2378,6 @@ class Entity {
             if(healthDamage > 0){this.hit = 1}
         }
       this.damageRecieved = 0;
-
         // Check for death
         if (this.isDead()) {
             // Initalize message arrays
