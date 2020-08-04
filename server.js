@@ -3134,7 +3134,7 @@ const sockets = (() => {
                     o.define({SIZE:30});
                     o.name += ran.blackbox();
                     o.refreshBodyAttributes();
-                    o.color = 19;
+                    o.color = 3;
                     bots.push(o);
             } }
                     break;
