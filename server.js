@@ -4828,6 +4828,7 @@ var maintainloop = (() => {
             
         };
     })();
+  
     // The big food function
     let makefood = (() => {
         let food = [], foodSpawners = [];
