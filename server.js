@@ -1460,9 +1460,8 @@ var bringToLife = (() => {
           }
                  if(my.invisible[0] != 3){
         if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved)
-                        my.alpha = Math.min(1, my.alpha + my.invisible[0]);                    
-                 
-                  else {my.alpha = 1};
+                  my.alpha = Math.min(1, my.alpha + my.invisible[0]);                                     
+                  //else my.alpha = 1;
                  }
                   else {
                     if (hit == 1){
