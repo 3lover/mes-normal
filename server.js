@@ -5222,5 +5222,5 @@ setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
 setInterval(poisonLoop, room.cycleSpeed * 7)
-setInterval(freezeLoop, room.cycleSpeed * 7)
+//setInterval(freezeLoop, room.cycleSpeed * 7)
 
