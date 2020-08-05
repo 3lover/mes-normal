@@ -2335,7 +2335,7 @@ class Entity {
     }
 
     friction() {
-      //if(doChill == true){this.maxSpeed = chillLevel};
+      if(doChill == true){this.maxSpeed = chillLevel};
       doChill = false;
       chillLevel = 0;
         var motion = this.velocity.length,
