@@ -2338,8 +2338,8 @@ class Entity {
       //if(doChill == true){this.maxSpeed = chillLevel};
       doChill = false;
       chillLevel = 0;
-      var motion = this.velocity.length,
-            excess = motion - this.maxSpeed;
+        var motion = this.velocity.length,
+           excess = motion - this.maxSpeed;
         if (excess > 0 && this.damp) {
             var k = this.damp / roomSpeed,
                 drag = excess / (k + 1),
