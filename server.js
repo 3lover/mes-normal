@@ -4723,7 +4723,7 @@ var freezeLoop = (() => {
  
             if (!element.invuln) {
               doChill = true
-              chillLevel = freezeLevel
+              chillLevel = element.freezeLevel
             }
  
             element.freezeTime -= 1
