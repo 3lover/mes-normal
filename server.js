@@ -4725,7 +4725,7 @@ var freezeLoop = (() => {
               doChill = true
               chillLevel = element.freezeLevel
             }
- 
+
             element.freezeTime -= 1
             if (element.freezeTime <= 0) element.frozen = false
  
