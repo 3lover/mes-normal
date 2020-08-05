@@ -4457,13 +4457,13 @@ var gameloop = (() => {
                     /*************   FREEZE  ***********/
                       if (n.freeze) {
                         my.frozen = true
-                        my.frozenLevel = n.poisionToApply
+                        my.freezeLevel = n.freezeToApply
                         my.freezeTime = 20
                         my.frozenBy = n.master
                       }
                       if (my.freeze) {
                         n.frozen = true
-                        n.frozenLevel = my.poisionToApply
+                        n.freezeLevel = my.freezeToApply
                         n.freezeTime = 20
                         n.frozenBy = my.master
                       }
@@ -4723,6 +4723,7 @@ var freezeLoop = (() => {
  
             if (!element.invuln) {
               doChill = true
+              chillLevel = freezeLevel
             }
  
             element.freezeTime -= 1
