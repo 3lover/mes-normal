@@ -3,7 +3,7 @@
 /*jshint -W061 */
 /*global goog, Map, let */
 "use strict";
-var doChill = 0;
+var doChill = false;
 var chillLevel = 0;
 var hit = 0;
 // General requires
@@ -2335,7 +2335,9 @@ class Entity {
     }
 
     friction() {
-      if(doChill == true){this.maxSpeed = chillLevel};
+      //if(doChill == true){this.maxSpeed = chillLevel};
+      doChill = false;
+      chillLevel = 0;
       var motion = this.velocity.length,
             excess = motion - this.maxSpeed;
         if (excess > 0 && this.damp) {
