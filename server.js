@@ -4,6 +4,7 @@
 /*global goog, Map, let */
 "use strict";
 var doChill = 0;
+var chillLevel = 0;
 var hit = 0;
 // General requires
 require('google-closure-library');
@@ -2334,7 +2335,8 @@ class Entity {
     }
 
     friction() {
-        var motion = this.velocity.length,
+      if(doChill == true){this.maxSpeed = chillLevel};
+      var motion = this.velocity.length,
             excess = motion - this.maxSpeed;
         if (excess > 0 && this.damp) {
             var k = this.damp / roomSpeed,
