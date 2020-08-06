@@ -4888,7 +4888,7 @@ var maintainloop = (() => {
             spawnToxic(census);
             let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, Class.botChillerGun, 
                            
-                      /*2*/     Class.botPoisonGun, Class.botLancerLancer];
+                      /*2*/     Class.botPoisonGun, Class.botLance];
             
           let tanklist = [Class.booster,          Class.oblivion,       Class.basic,       Class.chiller,       
                            
