@@ -4888,11 +4888,11 @@ var maintainloop = (() => {
             spawnToxic(census);
             let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, Class.botChillerGun, 
                            
-                      /*2*/     Class.botPoisonGun, Class.botLance];
+                      /*2*/     Class.botPoisonGun, Class.botSpike, Class.botHiderGun, Class.botIncongruencyRammer];
             
           let tanklist = [Class.booster,          Class.oblivion,       Class.basic,       Class.chiller,       
                            
-                     /*2*/      Class.poison,       Class.lancer];
+                     /*2*/      Class.poison,       Class.spike,    Class.hider,       Class.incongruency];
           
              var j = [Math.floor(Math.random() * botlist.length)]
                 if (bots.length < c.BOTS) {
