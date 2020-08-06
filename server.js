@@ -4886,7 +4886,7 @@ var maintainloop = (() => {
             spawnCrasher(census);
             spawnBosses(census);
             spawnToxic(census);
-            let botlist = [Class.botBoosterRammer, Class.botoblivion, Class.botBasicGun, Class.botChillerGun, 
+            let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, Class.botChillerGun, 
                            
                       /*2*/     Class.botPoisonGun, Class.botLancerLancer];
             
