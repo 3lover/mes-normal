@@ -4892,7 +4892,7 @@ var maintainloop = (() => {
             
           let tanklist = [Class.booster,          Class.oblivion,       Class.basic,       Class.chiller,       
                            
-                     /*2*/      Class.poison,       Class.spike,    Class.hider,       Class.incongruency];
+                     /*2*/      Class.poison,       Class.spike,    Class.hider,       Class.botincongru];
           
              var j = [Math.floor(Math.random() * botlist.length)]
                 if (bots.length < c.BOTS) {
