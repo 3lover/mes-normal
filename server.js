@@ -2335,9 +2335,6 @@ class Entity {
     }
 
     friction() {
-      if(doChill == true){this.maxSpeed = chillLevel};
-      doChill = false;
-      chillLevel = 0;
         var motion = this.velocity.length,
            excess = motion - this.maxSpeed;
         if (excess > 0 && this.damp) {
@@ -4725,7 +4722,6 @@ var freezeLoop = (() => {
  
             if (!element.invuln) {
               doChill = true
-              chillLevel = element.freezeLevel
             }
 
             element.freezeTime -= 1
@@ -5222,5 +5218,5 @@ setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
 setInterval(poisonLoop, room.cycleSpeed * 7)
-//setInterval(freezeLoop, room.cycleSpeed * 7)
+setInterval(freezeLoop, room.cycleSpeed * 7)
 
