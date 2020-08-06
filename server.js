@@ -3,8 +3,6 @@
 /*jshint -W061 */
 /*global goog, Map, let */
 "use strict";
-var doChill = false;
-var chillLevel = 0;
 var hit = 0;
 // General requires
 require('google-closure-library');
@@ -1595,7 +1593,7 @@ class Entity {
         this.freeze = false
         this.frozenBy = -1
         this.freezeLevel = 0
-        this.freezeToApply = 0
+        this.freezeToApply = 1
         this.showfreeze = false
        	this.freezeTimer = 0
         this.master = master;
@@ -2330,7 +2328,7 @@ class Entity {
         nullVector(this.accel); 
         // Apply motion
        let slowdown = 1
-        if (this.frozen){slowdown = this.freezeToApply};
+        if (this.frozen){slowdown = this.freezeLevel};
         this.stepRemaining = 1;
         this.x += this.stepRemaining * this.velocity.x * slowdown / roomSpeed;
         this.y += this.stepRemaining * this.velocity.y * slowdown / roomSpeed;        
@@ -4723,7 +4721,6 @@ var freezeLoop = (() => {
             o.define(Class['freezeEffect'])
  
             if (!element.invuln) {
-              doChill = true
             }
 
             element.freezeTime -= 1
