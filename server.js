@@ -2316,7 +2316,7 @@ class Entity {
     }
 
     physics() {
-        if (this.accel.x == null || this.velocity.x == null) {
+      if (this.accel.x == null || this.velocity.x == null) {
             util.error('Void Error!');
             util.error(this.collisionArray);
             util.error(this.label);
@@ -2329,6 +2329,8 @@ class Entity {
         // Reset acceleration
         nullVector(this.accel); 
         // Apply motion
+       
+        if (this.frozen){slowdown = 0.2}
         this.stepRemaining = 1;
         this.x += this.stepRemaining * this.velocity.x / roomSpeed;
         this.y += this.stepRemaining * this.velocity.y / roomSpeed;        
