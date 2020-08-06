@@ -2329,11 +2329,11 @@ class Entity {
         // Reset acceleration
         nullVector(this.accel); 
         // Apply motion
-       
-        if (this.frozen){slowdown = 0.2}
+       let slowdown = 1
+        if (this.frozen){slowdown = this.freezeToApply};
         this.stepRemaining = 1;
-        this.x += this.stepRemaining * this.velocity.x / roomSpeed;
-        this.y += this.stepRemaining * this.velocity.y / roomSpeed;        
+        this.x += this.stepRemaining * this.velocity.x * slowdown / roomSpeed;
+        this.y += this.stepRemaining * this.velocity.y * slowdown / roomSpeed;        
     }
 
     friction() {
