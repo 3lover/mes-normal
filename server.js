@@ -4886,8 +4886,8 @@ var maintainloop = (() => {
             spawnCrasher(census);
             spawnBosses(census);
             spawnToxic(census);
-            let botlist = [Class.botBoosterRammer, Class.botAnni, Class.botBasicGun];
-            let tanklist = [Class.booster,          Class.anni,    Class.basic];
+            let botlist = [Class.botBoosterRammer, Class.botoblivion, Class.botBasicGun, Class.botChillerGun, Class.botPoisonGun];
+            let tanklist = [Class.booster,          Class.anni,     Class.basic,       Class.chiller,       Class.poison];
              var j = [Math.floor(Math.random() * botlist.length)]
                 if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
