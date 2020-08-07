@@ -1589,6 +1589,7 @@ class Entity {
         this.poisonToApply = 0
         this.showpoison = false
        	this.poisonTimer = 0
+        this.poisonimmune = false
         this.frozen = false
         this.freeze = false
         this.frozenBy = -1
@@ -1813,6 +1814,9 @@ class Entity {
         }
         if (set.POISON != null) {
           this.poison = set.POISON
+        }
+        if (set.POISONIMMUNE != null) {
+          this.poisonimmune = set.POISONIMMUNE
         }
         if (set.POISONED != null) {
           this.poisoned = set.POISONED
@@ -4669,7 +4673,7 @@ var poisonLoop = (() => {
             })
             o.define(Class['poisonEffect'])
  
-            if (!element.invuln) {
+            if (!element.invuln || element.poisonimmune) {
               element.health.amount -= element.health.max / (55 - element.poisonLevel)
               element.shield.amount -= element.shield.max / (35 - element.poisonLevel)
             }
