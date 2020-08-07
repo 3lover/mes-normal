@@ -4559,6 +4559,7 @@ var gameloop = (() => {
             // Otherwise, collide normally if they're from different teams
             if (instance.team !== other.team) {
                 advancedcollide(instance, other, true, true);
+            } else
             // Ignore them if either has asked to be
             if (instance.settings.hitsOwnType == 'never' || other.settings.hitsOwnType == 'never') {
                 // Do jack                    
