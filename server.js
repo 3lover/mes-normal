@@ -4557,8 +4557,10 @@ var gameloop = (() => {
                 firmcollide(instance, other);
             } else
             // Otherwise, collide normally if they're from different teams
-            if (instance.team !== other.team) {
-                advancedcollide(instance, other, true, true);
+             if (instance.team !== other.team) {
+                if (!instance.isHealBullet && !other.isHealBullet) collisions.advancedcollide(instance, other, true, true);
+            } else if ((instance.isHealBullet && other.team === instance.team) || (other.isHealBullet && instance.team === other.team)) {
+              if (instance.master != other && other.master != instance) collisions.advancedcollide(instance, other, true, true);
             } else 
             // Ignore them if either has asked to be
             if (instance.settings.hitsOwnType == 'never' || other.settings.hitsOwnType == 'never') {
