@@ -4860,6 +4860,16 @@ var maintainloop = (() => {
                 o.team = -100;
         }
     };
+    let spawnBoulder = census => {
+        if (ran.chance(0.02)) {
+            let spot, i = 30;
+            do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (Class.healthrammer)
+            let o = new Entity(spot);
+                o.define(type);
+                o.team = -100;
+        }
+    };
     // The NPC function
     let makenpcs = (() => {
         // Make base protectors if needed.
@@ -4890,6 +4900,7 @@ var maintainloop = (() => {
             spawnCrasher(census);
             spawnBosses(census);
             spawnToxic(census);
+            spawnBoulder(census);
             let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, Class.botChillerGun, 
                            
                       /*2*/     Class.botPoisonGun, Class.botSpike, Class.botHiderGun, Class.botIncongruencyRammer];
