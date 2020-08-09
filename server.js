@@ -4745,7 +4745,50 @@ var freezeLoop = (() => {
 })();
 var maintainloop = (() => {
     // Place obstacles
-    function placeRoids() {
+    // Fun stuff, like RAINBOWS :D
+    function freeze(my) {
+      entities.forEach(function(element) {
+        if (element.showfreeze) {
+            let x = element.size + 10
+            let y = element.size + 10
+            Math.random() < 0.5 ? x *= -1 : x
+            Math.random() < 0.5 ? y *= -1 : y
+            Math.random() < 0.5 ? x *= Math.random() + 1 : x
+            Math.random() < 0.5 ? y *= Math.random() + 1 : y
+            var o = new Entity({
+            x: element.x + x,
+            y: element.y + y
+            })
+            o.define(Class['freezeEffect'])
+        }
+		if (element.frozen) {// && element.type == 'tank'
+            let x = element.size + 10
+            let y = element.size + 10
+            Math.random() < 0.5 ? x *= -1 : x
+            Math.random() < 0.5 ? y *= -1 : y
+            Math.random() < 0.5 ? x *= Math.random() + 1 : x
+            Math.random() < 0.5 ? y *= Math.random() + 1 : y
+            var o = new Entity({
+            x: element.x + x,
+            y: element.y + y
+            })
+            o.define(Class['freezeEffect'])
+ 
+            if (!element.invuln) {
+            }
+
+            element.freezeTime -= 1
+            if (element.freezeTime <= 0) element.frozen = false
+ 
+            if (element.health.amount <= 0 && element.frozenBy != undefined && element.frozenBy.skill != undefined) {
+              element.frozenBy.skill.score += Math.ceil(util.getJackpot(element.frozenBy.skill.score));
+              element.frozenBy.sendMessage('You killed ' + element.name + ' with the cold.'); 
+              element.sendMessage('You have been killed by ' + element.frozenBy.name + ' with the cold.')
+            }
+          }
+      }
+    )}
+  function placeRoids() {
         function placeRoid(type, entityClass) {
             let x = 0;
             let position;
