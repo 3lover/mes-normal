@@ -4694,7 +4694,7 @@ var poisonLoop = (() => {
         poison()
     };
 })();
-var freezeLoop = (() => {
+/*var freezeLoop = (() => {
     // Fun stuff, like RAINBOWS :D
     function freeze(my) {
       entities.forEach(function(element) {
@@ -4742,7 +4742,7 @@ var freezeLoop = (() => {
         // run the freeze
         freeze()
     };
-})();
+})();*/
 var maintainloop = (() => {
     // Place obstacles
     // Fun stuff, like RAINBOWS :D
@@ -5281,5 +5281,5 @@ setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
 setInterval(poisonLoop, room.cycleSpeed * 7)
-setInterval(freezeLoop, room.cycleSpeed * 7)
+//setInterval(freezeLoop, room.cycleSpeed * 7)
 
