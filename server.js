@@ -1694,6 +1694,8 @@ class Entity {
                 let size = getLongestEdge(x1, y1, x2, y1);
                 let sizeDiff = savedSize / size;
                 // Update data
+                freezeLoop()
+                poisonLoop()
                 data = { 
                     min: [x1, y1],
                     max: [x2, y2],
@@ -1708,7 +1710,7 @@ class Entity {
             };
             return () => { return data; };
         })();
-        this.updateAABB(true);   
+        this.updateAABB(true); 
         entities.push(this); // everything else
         views.forEach(v => v.add(this));
     }
@@ -4643,7 +4645,7 @@ var gameloop = (() => {
 })();
 // A less important loop. Runs at an actual 5Hz regardless of game speed.
 
-var poisonLoop = (() => {
+function poisonLoop() {
     // Fun stuff, like RAINBOWS :D
     function poison(my) {
       entities.forEach(function(element) {
@@ -4693,8 +4695,8 @@ var poisonLoop = (() => {
         // run the poison
         poison()
     };
-})();
-/*var freezeLoop = (() => {
+};
+function freezeLoop()  {
     // Fun stuff, like RAINBOWS :D
     function freeze(my) {
       entities.forEach(function(element) {
@@ -4742,53 +4744,10 @@ var poisonLoop = (() => {
         // run the freeze
         freeze()
     };
-})();*/
+};
 var maintainloop = (() => {
     // Place obstacles
-    // Fun stuff, like RAINBOWS :D
-    function freeze(my) {
-      entities.forEach(function(element) {
-        if (element.showfreeze) {
-            let x = element.size + 10
-            let y = element.size + 10
-            Math.random() < 0.5 ? x *= -1 : x
-            Math.random() < 0.5 ? y *= -1 : y
-            Math.random() < 0.5 ? x *= Math.random() + 1 : x
-            Math.random() < 0.5 ? y *= Math.random() + 1 : y
-            var o = new Entity({
-            x: element.x + x,
-            y: element.y + y
-            })
-            o.define(Class['freezeEffect'])
-        }
-		if (element.frozen) {// && element.type == 'tank'
-            let x = element.size + 10
-            let y = element.size + 10
-            Math.random() < 0.5 ? x *= -1 : x
-            Math.random() < 0.5 ? y *= -1 : y
-            Math.random() < 0.5 ? x *= Math.random() + 1 : x
-            Math.random() < 0.5 ? y *= Math.random() + 1 : y
-            var o = new Entity({
-            x: element.x + x,
-            y: element.y + y
-            })
-            o.define(Class['freezeEffect'])
- 
-            if (!element.invuln) {
-            }
-
-            element.freezeTime -= 1
-            if (element.freezeTime <= 0) element.frozen = false
- 
-            if (element.health.amount <= 0 && element.frozenBy != undefined && element.frozenBy.skill != undefined) {
-              element.frozenBy.skill.score += Math.ceil(util.getJackpot(element.frozenBy.skill.score));
-              element.frozenBy.sendMessage('You killed ' + element.name + ' with the cold.'); 
-              element.sendMessage('You have been killed by ' + element.frozenBy.name + ' with the cold.')
-            }
-          }
-      }
-    )}
-  function placeRoids() {
+    function placeRoids() {
         function placeRoid(type, entityClass) {
             let x = 0;
             let position;
@@ -5280,6 +5239,5 @@ let websockets = (() => {
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
-setInterval(poisonLoop, room.cycleSpeed * 7)
-//setInterval(freezeLoop, room.cycleSpeed * 7)
+
 
