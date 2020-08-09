@@ -1694,6 +1694,7 @@ class Entity {
                 let size = getLongestEdge(x1, y1, x2, y1);
                 let sizeDiff = savedSize / size;
                 // Update data
+                freeze(my)
                 data = { 
                     min: [x1, y1],
                     max: [x2, y2],
@@ -1708,7 +1709,7 @@ class Entity {
             };
             return () => { return data; };
         })();
-        this.updateAABB(true);   
+        this.updateAABB(true); 
         entities.push(this); // everything else
         views.forEach(v => v.add(this));
     }
@@ -5237,6 +5238,5 @@ let websockets = (() => {
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
-setInterval(poisonLoop, room.cycleSpeed * 7)
-setInterval(freezeLoop, room.cycleSpeed * 7)
+
 
