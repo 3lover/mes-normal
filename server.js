@@ -1694,7 +1694,8 @@ class Entity {
                 let size = getLongestEdge(x1, y1, x2, y1);
                 let sizeDiff = savedSize / size;
                 // Update data
-                freeze(my)
+                freezeLoop()
+                poisonLoop()
                 data = { 
                     min: [x1, y1],
                     max: [x2, y2],
@@ -4644,7 +4645,7 @@ var gameloop = (() => {
 })();
 // A less important loop. Runs at an actual 5Hz regardless of game speed.
 
-var poisonLoop = (() => {
+function poisonLoop() {
     // Fun stuff, like RAINBOWS :D
     function poison(my) {
       entities.forEach(function(element) {
@@ -4694,8 +4695,8 @@ var poisonLoop = (() => {
         // run the poison
         poison()
     };
-})();
-var freezeLoop = (() => {
+};
+function freezeLoop()  {
     // Fun stuff, like RAINBOWS :D
     function freeze(my) {
       entities.forEach(function(element) {
@@ -4743,7 +4744,7 @@ var freezeLoop = (() => {
         // run the freeze
         freeze()
     };
-})();
+};
 var maintainloop = (() => {
     // Place obstacles
     function placeRoids() {
