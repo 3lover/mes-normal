@@ -4745,7 +4745,7 @@ var freezeLoop = (() => {
 })();
 var maintainloop = (() => {
     // Place obstacles
-    function placeRoids() {
+  function placeRoids() {
         function placeRoid(type, entityClass) {
             let x = 0;
             let position;
