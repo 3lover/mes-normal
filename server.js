@@ -4581,8 +4581,6 @@ var gameloop = (() => {
         my.collisionArray = []; 
         // Activation
         my.activation.update();
-        poisonLoop()
-        freezeLoop()
         my.updateAABB(my.activation.check()); 
     }
     function entitiesliveloop (my) {
@@ -4645,7 +4643,7 @@ var gameloop = (() => {
 })();
 // A less important loop. Runs at an actual 5Hz regardless of game speed.
 
-function poisonLoop() {
+var poisonLoop = (() => {
     // Fun stuff, like RAINBOWS :D
     function poison(my) {
       entities.forEach(function(element) {
@@ -4695,8 +4693,8 @@ function poisonLoop() {
         // run the poison
         poison()
     };
-};
-function freezeLoop() {
+})();
+var freezeLoop = (() => {
     // Fun stuff, like RAINBOWS :D
     function freeze(my) {
       entities.forEach(function(element) {
@@ -4744,7 +4742,7 @@ function freezeLoop() {
         // run the freeze
         freeze()
     };
-};
+})();
 var maintainloop = (() => {
     // Place obstacles
     function placeRoids() {
@@ -5239,5 +5237,6 @@ let websockets = (() => {
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
-
+setInterval(poisonLoop, room.cycleSpeed * 7)
+setInterval(freezeLoop, room.cycleSpeed * 7)
 
