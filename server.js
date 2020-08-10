@@ -4673,13 +4673,10 @@ var poisonLoop = (() => {
             })
             o.define(Class['poisonEffect'])
             if (element.poisonimmune == true){element.poisoned = false}else{
-            if (!element.invuln && element.poisonLevel != 99) {
+            if (!element.invuln) {
               element.health.amount -= element.health.max / (55 - element.poisonLevel)
               element.shield.amount -= element.shield.max / (35 - element.poisonLevel)
             }
-            }
-            if (element.poisonLevel == 99){
-            element.shield.amount = 0
             }
       
             element.poisonTime -= 1
