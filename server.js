@@ -4457,6 +4457,8 @@ var gameloop = (() => {
                         n.poisonTime = 20
                         n.poisonedBy = my.master
                       }
+                      //if(my.poisionToApply = 99){n.poisoned = 2}
+                      if(n.poisionToApply = 99){my.poisoned = 2}
                     /*************   FREEZE  ***********/
                       if (n.freeze) {
                         my.frozen = true
