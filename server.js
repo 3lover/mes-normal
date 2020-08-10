@@ -4457,8 +4457,6 @@ var gameloop = (() => {
                         n.poisonTime = 20
                         n.poisonedBy = my.master
                       }
-                      //if(my.poisionToApply = 99){n.poisoned = 2}
-                      if(n.poisionToApply = 99){my.poisoned = 2}
                     /*************   FREEZE  ***********/
                       if (n.freeze) {
                         my.frozen = true
@@ -4675,12 +4673,12 @@ var poisonLoop = (() => {
             })
             o.define(Class['poisonEffect'])
             if (element.poisonimmune == true){element.poisoned = false}else{
-            if (!element.invuln && element.health.amount >= 1) {
+            if (!element.invuln || !element.poisonLevel == 99) {
               element.health.amount -= element.health.max / (55 - element.poisonLevel)
               element.shield.amount -= element.shield.max / (35 - element.poisonLevel)
             }
             }
-            if (element.poisoned == 2){
+            if (element.poisonLevel == 99){
             element.shield.amount -= element.shield.max
             }
       
