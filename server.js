@@ -3123,11 +3123,11 @@ const sockets = (() => {
                         player.body.define(Class.testbed);
                     } }
                 } break;
-                    case '0': { // beta tanks
+                    case 'BT': { // beta tanks
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.BETA || socket.key === process.env.SECRET) {
-                        player.body.define(Class.testbed);
+                        player.body.define(Class.beta);
                     } }
                 } break;
                 case "spawnBoss":
