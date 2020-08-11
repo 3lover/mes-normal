@@ -1,4 +1,5 @@
-    [ "roid", "norm", "norm", "norm","norm", "norm", "roid"],
+//dont forget to change x and y 
+[ "roid", "norm", "norm", "norm","norm", "norm", "roid"],
     [ "norm", "rock", "rock", "rock","rock", "rock", "norm"],
     [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
     [ "norm", "rock", "nest", "roid","nest", "rock", "norm"],
@@ -17,3 +18,6 @@
     ["rock", "rock", "nest", "nest", "rock", "roid"],
     ["rock", "norm", "rock", "rock", "roid", "roid"],
     ["norm", "rock", "rock", "roid", "roid", "bas1"]
+
+//for survival mode woth 2000 HEIGHT and 10000 WIDTH:
+["bas1","norm", "roid", "roid", "nest"]
