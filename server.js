@@ -28,6 +28,7 @@ Array.prototype.remove = index => {
     }
 };
 var bots = [];
+var monsters = [];
 // Set up room.
 global.fps = "Unknown";
 var roomSpeed = c.gameSpeed;
@@ -4880,7 +4881,8 @@ var maintainloop = (() => {
     };
   //the following are for survival mode:
     let spawnRockmonsters = census => {
-      if (c.FOODAMOUNT<=
+      let rocks = 20 
+      if (monsters.length < c.MAX_MONSTERS) {
       if (ran.chance(0.02)) {
             let spot, i = 30;
             do { spot = room.randomType('rock'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
@@ -4904,7 +4906,9 @@ var maintainloop = (() => {
             let o = new Entity(spot);
                 o.define(type);
                 o.team = -100;
+                monsters.push(o);
         }
+      }
     };
     // The NPC function
     let makenpcs = (() => {
