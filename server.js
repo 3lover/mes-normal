@@ -4880,6 +4880,7 @@ var maintainloop = (() => {
     };
   //the following are for survival mode:
     let spawnRockmonsters = census => {
+      if c.FOODAMOUNT
       if (ran.chance(0.02)) {
             let spot, i = 30;
             do { spot = room.randomType('rock'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
