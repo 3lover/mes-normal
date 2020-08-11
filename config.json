@@ -11,15 +11,15 @@
   "runSpeed": 1.5,
   "maxHeartbeatInterval": 300000,
   "verbose": true,
-  "WIDTH": 10000,
+  "WIDTH": 20000,
   "HEIGHT": 2000,
   "MODE": "tdm",
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    ["bas1","norm", "rock", "roid", "nest", "hell"]
+    ["bas1","norm", "rock", "roid", "nest", "gold", "volc", "hell"]
     ],
-  "X_GRID": 6,
+  "X_GRID": 8,
   "Y_GRID": 1,
   "DAMAGE_CONSTANT": 0.6,
   "KNOCKBACK_CONSTANT": 1,
@@ -58,6 +58,6 @@
   "SKILL_BOOST": 5,
   "BOTS": 0,
   "GLASS_HEALTH_FACTOR": 2,
-  "MAX_ROCKS": 30
+  "MAX_ROCKS": 15
 }
   
