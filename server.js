@@ -75,6 +75,12 @@ const room = {
     room.findType('bas4');
     room.findType('roid');
     room.findType('rock');
+    //for survival
+    room.findType('volc');
+    room.findType('hive');
+    room.findType('hell');
+    room.findType('gold');
+    //not for survival
     room.nestFoodAmount = 1.5 * Math.sqrt(room.nest.length) / room.xgrid / room.ygrid;
     room.random = () => {
         return {
@@ -4893,8 +4899,8 @@ var maintainloop = (() => {
         }
          if (ran.chance(0.04)) {
             let spot, i = 30;
-            do { spot = room.randomType('rock'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (ran.dice(80)) ? ran.choose([Class.RM1, Class.RM2]) : ran.choose([Class.RM1, Class.RM2]);
+            do { spot = room.randomType('roid'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (Class.RM2);
             let o = new Entity(spot);
                 o.define(type);
                 o.team = -100;

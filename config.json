@@ -17,9 +17,9 @@
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    ["bas1","norm", "rock", "roid", "nest"]
+    ["bas1","norm", "rock", "roid", "nest", "hell"]
     ],
-  "X_GRID": 5,
+  "X_GRID": 6,
   "Y_GRID": 1,
   "DAMAGE_CONSTANT": 0.6,
   "KNOCKBACK_CONSTANT": 1,
