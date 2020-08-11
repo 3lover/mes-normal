@@ -4880,14 +4880,13 @@ var maintainloop = (() => {
     };
   //the following are for survival mode:
     let spawnRockmonsters = census => {
-      if (ran.chance(0.006)) {
+      if (ran.chance(0.03)) {
             let spot, i = 30;
             do { spot = room.randomType('roid'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (ran.dice(80)) ? ran.choose([Class.RM1, Class.RM2]) : ran.choose([Class.RM1, Class.RM2]);
             let o = new Entity(spot);
                 o.define(type);
                 o.team = -100;
-            
         }
         if (ran.chance(0.001)) {
             let spot, i = 30;
