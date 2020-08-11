@@ -4879,7 +4879,7 @@ var maintainloop = (() => {
         }
     };
   //the following are for survival mode:
-    let spawnRockmonster = census => {
+    let spawnRockmonsters = census => {
         if (ran.chance(0.003)) {
             let spot, i = 30;
             do { spot = room.randomType('roid'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
@@ -4920,6 +4920,7 @@ var maintainloop = (() => {
             spawnBosses(census);
             spawnToxic(census);
             spawnBoulder(census);
+            spawnRockmonsters(census);
             let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, 
                            
                       /*2*/      Class.botSpike, Class.botHiderGun, Class.botIncongruencyRammer];
