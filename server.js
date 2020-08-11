@@ -4909,11 +4909,11 @@ var maintainloop = (() => {
             spawnBosses(census);
             spawnToxic(census);
             spawnBoulder(census);
-            let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, Class.botChillerGun, 
+            let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, 
                            
                       /*2*/      Class.botSpike, Class.botHiderGun, Class.botIncongruencyRammer];
             
-          let tanklist = [Class.booster,          Class.oblivion,       Class.basic,       Class.chiller,       
+          let tanklist = [Class.booster,          Class.oblivion,       Class.basic,           
                            
                      /*2*/       Class.spike,    Class.hider,       Class.botincongru];
           
