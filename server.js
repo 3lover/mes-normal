@@ -3426,7 +3426,7 @@ const sockets = (() => {
                                 if (p.body != null) { scoreCensus[p.team - 1] += p.body.skill.score; }
                             });
                             let possiblities = [];
-                            for (let i=0, m=0; i<1; i++) {//i=4 is normal. survival mode for teams is 1
+                            for (let i=0, m=0; i<1; i++) { //i=4 is normal. survival mode for teams is 1
                                 let v = Math.round(1000000 * (room['bas'+(i+1)].length + 1) / (census[i] + 1) / scoreCensus[i]);
                                 if (v > m) {
                                     m = v; possiblities = [i];
@@ -4920,6 +4920,15 @@ var maintainloop = (() => {
                 rocks.push(o);
         }
       }
+      if (ran.chance(0.3)) {
+            let spot, i = 30;
+            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (Class.beehive);
+            let o = new Entity(spot);
+                o.define(type);
+                o.team = -100;
+                rocks.push(o);
+        }
        rocks = rocks.filter(e => { return !e.isDead(); });
     };
     // The NPC function
