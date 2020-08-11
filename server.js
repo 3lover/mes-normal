@@ -4883,7 +4883,15 @@ var maintainloop = (() => {
         if (ran.chance(0.003)) {
             let spot, i = 30;
             do { spot = room.randomType('roid'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (ran.dice(80)) ? ran.choose([Class.RM1, Class.RM2, Class.RM3]) : ran.choose([Class.RM1, Class.RM2, Class.RM3]);
+            let type = (ran.dice(80)) ? ran.choose([Class.RM1, Class.RM2]) : ran.choose([Class.RM1, Class.RM2]);
+            let o = new Entity(spot);
+                o.define(type);
+                o.team = -100;
+        }
+        if (ran.chance(0.001)) {
+            let spot, i = 30;
+            do { spot = room.randomType('roid'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (Class.RM3);
             let o = new Entity(spot);
                 o.define(type);
                 o.team = -100;
