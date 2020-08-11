@@ -4911,11 +4911,11 @@ var maintainloop = (() => {
             spawnBoulder(census);
             let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, Class.botChillerGun, 
                            
-                      /*2*/     Class.botPoisonGun, Class.botSpike, Class.botHiderGun, Class.botIncongruencyRammer];
+                      /*2*/      Class.botSpike, Class.botHiderGun, Class.botIncongruencyRammer];
             
           let tanklist = [Class.booster,          Class.oblivion,       Class.basic,       Class.chiller,       
                            
-                     /*2*/      Class.poison,       Class.spike,    Class.hider,       Class.botincongru];
+                     /*2*/       Class.spike,    Class.hider,       Class.botincongru];
           
              var j = [Math.floor(Math.random() * botlist.length)]
                 if (bots.length < c.BOTS) {
