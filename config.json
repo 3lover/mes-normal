@@ -17,7 +17,7 @@
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    ["bas1","norm", "roid", "roid", "nest"]
+    ["bas1","norm", "rock", "roid", "nest"]
     ],
   "X_GRID": 5,
   "Y_GRID": 1,
@@ -54,7 +54,7 @@
   "SKILL_LEAK": 0,
   "STEALTH": 4,
   "MIN_SPEED": 0.001,
-  "FOOD_AMOUNT": 2, 
+  "FOOD_AMOUNT": 0.5, 
   "SKILL_BOOST": 5,
   "BOTS": 0,
   "GLASS_HEALTH_FACTOR": 2 
