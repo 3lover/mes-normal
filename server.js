@@ -1487,6 +1487,7 @@ var bringToLife = (() => {
       if(my.invisible[0] == 2){
         my.alpha = my.invisible[2]
       }
+      if (my.alpha <= any number you want){my.DANGER = -999}
       };
       hit = 0
         // So we start with my master's thoughts and then we filter them down through our control stack
