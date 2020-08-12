@@ -29,6 +29,10 @@ Array.prototype.remove = index => {
 };
 var bots = [];
 var rocks = [];
+var desert = [];
+var hell = [];
+var nest = [];
+var volcano = [];
 var normal = [];
 // Set up room.
 global.fps = "Unknown";
@@ -4965,8 +4969,13 @@ var maintainloop = (() => {
                 normal.push(o);
                 }
        }
+      if (normal.length < c.MAX_DESERT) {
+        
+        
+      }
        rocks = rocks.filter(e => { return !e.isDead(); });
        normal = normal.filter(e => { return !e.isDead(); }); 
+      desert = desert.filter(e => { return !e.isDead(); });
     };
     // The NPC function
     let makenpcs = (() => {

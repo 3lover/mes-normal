@@ -59,6 +59,10 @@
   "BOTS": 0,
   "GLASS_HEALTH_FACTOR": 2,
   "MAX_NORMAL": 15,
-  "MAX_ROCKS": 15
+  "MAX_ROCKS": 15,
+  "MAX_DESERT": 15,
+  "MAX_HELL": 15,
+  "MAX_VOLCANO": 15,
+  "MAX_NEST": 15
 }
   
