@@ -505,16 +505,18 @@ class io_nearestDifferentMaster extends IO {
                     yaboi = true;
                 } else if (Math.abs(util.angleDifference(util.getDirection(this.body, e), this.body.firingArc[0])) < this.body.firingArc[1]) yaboi = true;
             }
-            if (yaboi) {                
+            if (yaboi) {    
+                if (e.dangerValue >= 1){
                 mostDangerous = Math.max(e.dangerValue, mostDangerous);
                 return e;
-            }
+            } }
         }).filter((e) => { 
             // Only return the highest tier of danger
-            if (e != null) { if (this.body.aiSettings.farm || e.dangerValue === mostDangerous) { 
-                if (this.targetLock) { if (e.id === this.targetLock.id) keepTarget = true; }
+           if (this.dangerValue >= 1){
+          if (e != null) { if (this.body.aiSettings.farm || e.dangerValue === mostDangerous) { 
+              if (this.targetLock) { if (e.id === this.targetLock.id) keepTarget = true; }
                 return e; 
-            } } 
+            } } } else{this.targetLock = undefined};
         }); 
         // Reset target if it's not in there
         if (!keepTarget) this.targetLock = undefined;
@@ -1488,7 +1490,7 @@ var bringToLife = (() => {
         my.alpha = my.invisible[2]
       }
       //if (my.alpha <= 50){
-      my.dangerValue = -999
+     // my.dangerValue = -999
       //}
       };
       hit = 0
