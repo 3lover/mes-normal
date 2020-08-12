@@ -4804,7 +4804,8 @@ var maintainloop = (() => {
         for (let i=Math.ceil(rockcount * 0.6); i; i--) { count++; placeRoid('hell', Class.bigObstacle); }
         for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('hell', Class.hugeObstacle); }
     // for survival
-        for (let i=Math.ceil(roidcount * 0.5); i; i--) { count++; placeRoid('norm', Class.bush); }
+        for (let i=Math.ceil(roidcount * 0.3); i; i--) { count++; placeRoid('norm', Class.bush); }
+        for (let i=Math.ceil(roidcount * 0.2); i; i--) { count++; placeRoid('norm', Class.smallbush); }
         util.log('Placing ' + count + ' obstacles!');
     }
     placeRoids();
@@ -4939,7 +4940,7 @@ var maintainloop = (() => {
         }
       }
        if (normal.length < c.MAX_NORMAL) {
-      if (ran.chance(0.03)) {
+      if (ran.chance(0.01)) {
             let spot, i = 30;
             do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.beehive);
@@ -4948,7 +4949,7 @@ var maintainloop = (() => {
                 o.team = -100;
                 normal.push(o);
         }
-      if (ran.chance(0.06)) {
+      if (ran.chance(0.08)) {
             let spot, i = 30;
             do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.bird);
@@ -4957,7 +4958,7 @@ var maintainloop = (() => {
                 o.team = -100;
                 normal.push(o);
         }
-          if (ran.chance(0.03)) {
+          if (ran.chance(0.02)) {
             let spot, i = 30;
             do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.RhinoMonster);
@@ -4970,7 +4971,15 @@ var maintainloop = (() => {
                 }
        }
       if (normal.length < c.MAX_DESERT) {
-        
+        if (ran.chance(0.06)) {
+            let spot, i = 30;
+            do { spot = room.randomType('gold'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (Class.whirlwind);
+            let o = new Entity(spot);
+                o.define(type);
+                o.team = -100;
+                normal.push(o);
+        }
         
       }
        rocks = rocks.filter(e => { return !e.isDead(); });
