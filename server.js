@@ -487,12 +487,13 @@ class io_nearestDifferentMaster extends IO {
             // Only look at those within our view, and our parent's view, not dead, not our kind, not a bullet/trap/block etc
             if (e.health.amount > 0) {
             if (!e.invuln) {
+            if (this.dangerValue !== -999) {
             if (e.master.master.team !== this.body.master.master.team) {
             if (e.master.master.team !== -101) {
             if (e.type === 'tank' || e.type === 'crasher' || (!this.body.aiSettings.shapefriend && e.type === 'food')) {
             if (Math.abs(e.x - m.x) < range && Math.abs(e.y - m.y) < range) {
             if (!this.body.aiSettings.blind || (Math.abs(e.x - mm.x) < range && Math.abs(e.y - mm.y) < range)) return e;
-            } } } } } }
+            } } } } } } }
         }).filter((e) => { return e; });
         
         if (!out.length) return [];
@@ -506,17 +507,15 @@ class io_nearestDifferentMaster extends IO {
                 } else if (Math.abs(util.angleDifference(util.getDirection(this.body, e), this.body.firingArc[0])) < this.body.firingArc[1]) yaboi = true;
             }
             if (yaboi) {    
-                //if (e.dangerValue >= 1){
                 mostDangerous = Math.max(e.dangerValue, mostDangerous);
                 return e;
-            } //}
+            }
         }).filter((e) => { 
             // Only return the highest tier of danger
-           if (this.dangerValue >= 1){
           if (e != null) { if (this.body.aiSettings.farm || e.dangerValue === mostDangerous) { 
               if (this.targetLock) { if (e.id === this.targetLock.id) keepTarget = true; }
                 return e; 
-            } } } else{this.targetLock = undefined};
+            } } 
         }); 
         // Reset target if it's not in there
         if (!keepTarget) this.targetLock = undefined;
