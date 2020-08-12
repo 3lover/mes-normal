@@ -4931,6 +4931,15 @@ var maintainloop = (() => {
                 o.team = -100;
                 normal.push(o);
         }
+      if (ran.chance(0.06)) {
+            let spot, i = 30;
+            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (Class.bird);
+            let o = new Entity(spot);
+                o.define(type);
+                o.team = -100;
+                normal.push(o);
+        }
        }
        rocks = rocks.filter(e => { return !e.isDead(); });
        normal = normal.filter(e => { return !e.isDead(); }); 
