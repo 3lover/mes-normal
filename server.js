@@ -4940,18 +4940,16 @@ var maintainloop = (() => {
                 o.team = -100;
                 normal.push(o);
         }
-          if (ran.chance(0.06)) {
+          if (ran.chance(0.6)) {
             let spot, i = 30;
             do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (Class.bird);
+            let type = (Class.RhinoMonster);
             let o = new Entity(spot);
-                    o.color = 7;
-                    o.define(Class.rhino);
-                    o.define(Class.rhino);
-                    o.name += ran.chooseBotName();
-                    o.refreshBodyAttributes();
-                    o.color = 16;
-                    bots.push(o);
+                o.define(type);
+                o.team = -100;
+                o.define({SIZE:20});
+                o.define(Class.rhino);
+                normal.push(o);
                 }
        }
        rocks = rocks.filter(e => { return !e.isDead(); });
