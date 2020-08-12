@@ -4959,9 +4959,9 @@ var maintainloop = (() => {
                 o.team = -100;
                 normal.push(o);
         }
-          if (ran.chance(0.02)) {
+          if (ran.chance(0.9)) {
             let spot, i = 30;
-            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (true)//(dirtyCheck(spot, (100)));
+            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, (100)));
             let type = (Class.RhinoMonster);
             let o = new Entity(spot);
                 o.define(type);
@@ -4972,7 +4972,7 @@ var maintainloop = (() => {
                 }
        }
       if (normal.length < c.MAX_DESERT) {
-        if (ran.chance(0.06)) {
+        if (ran.chance(0.9)) {
             let spot, i = 30;
             do { spot = room.randomType('gold'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.whirlwind);
