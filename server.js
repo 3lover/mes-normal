@@ -4806,6 +4806,7 @@ var maintainloop = (() => {
     // for survival
         for (let i=Math.ceil(roidcount * 0.3); i; i--) { count++; placeRoid('norm', Class.bush); }
         for (let i=Math.ceil(roidcount * 0.2); i; i--) { count++; placeRoid('norm', Class.smallbush); }
+        for (let i=Math.ceil(roidcount * 0.1); i; i--) { count++; placeRoid('norm', Class.bigbush); }
         util.log('Placing ' + count + ' obstacles!');
     }
     placeRoids();
@@ -4960,7 +4961,7 @@ var maintainloop = (() => {
         }
           if (ran.chance(0.02)) {
             let spot, i = 30;
-            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (true)//(dirtyCheck(spot, (100)));
             let type = (Class.RhinoMonster);
             let o = new Entity(spot);
                 o.define(type);
