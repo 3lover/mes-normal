@@ -17,9 +17,9 @@
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    ["bas1","norm", "rock", "roid", "nest", "gold", "volc", "hell"]
+    ["bas1","norm","norm", "rock", "rock", "roid", "roid", "nest", "nest", "gold",  "gold", "volc", "volc","hell", "hell"]
     ],
-  "X_GRID": 8,
+  "X_GRID": 15,
   "Y_GRID": 1,
   "DAMAGE_CONSTANT": 0.6,
   "KNOCKBACK_CONSTANT": 1,
@@ -58,6 +58,7 @@
   "SKILL_BOOST": 5,
   "BOTS": 0,
   "GLASS_HEALTH_FACTOR": 2,
+  "MAX_NORMAL": 10,
   "MAX_ROCKS": 15
 }
   

@@ -29,6 +29,7 @@ Array.prototype.remove = index => {
 };
 var bots = [];
 var rocks = [];
+var normal = [];
 // Set up room.
 global.fps = "Unknown";
 var roomSpeed = c.gameSpeed;
@@ -4895,7 +4896,7 @@ var maintainloop = (() => {
       if (ran.chance(0.02)) {
             let spot, i = 30;
             do { spot = room.randomType('rock'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (ran.dice(80)) ? ran.choose([Class.RM1, Class.RM2]) : ran.choose([Class.RM1, Class.RM2]);
+            let type = (ran.dice(80)) ? ran.choose([Class.RM1,Class.RM1, Class.RM2]) : ran.choose([Class.RM1,Class.RM1, Class.RM2]);
             let o = new Entity(spot);
                 o.define(type);
                 o.team = -100;
@@ -4920,6 +4921,7 @@ var maintainloop = (() => {
                 rocks.push(o);
         }
       }
+       if (normal.length < c.MAX_NORMAL) {
       if (ran.chance(0.003)) {
             let spot, i = 30;
             do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
@@ -4927,9 +4929,11 @@ var maintainloop = (() => {
             let o = new Entity(spot);
                 o.define(type);
                 o.team = -100;
-                rocks.push(o);
+                normal.push(o);
         }
+       }
        rocks = rocks.filter(e => { return !e.isDead(); });
+       normal = normal.filter(e => { return !e.isDead(); }); 
     };
     // The NPC function
     let makenpcs = (() => {
