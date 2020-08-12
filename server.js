@@ -1469,7 +1469,6 @@ var bringToLife = (() => {
                  if(my.invisible[0] != 3){
         if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved)
                   my.alpha = Math.min(1, my.alpha + my.invisible[0]);                                     
-                  //else my.alpha = 1;
                  }
                   else {
                     if (hit == 1){
@@ -4573,7 +4572,9 @@ var gameloop = (() => {
                 let a = (instance.type === 'bullet' || other.type === 'bullet') ? 
                     1 + 10 / (Math.max(instance.velocity.length, other.velocity.length) + 10) : 
                     1;
-                if (instance.type === 'cover') advancedcollide(false, false, false, false, false);
+                if (instance.type === 'cover'){ 
+                  advancedcollide(false, false, false, false, false);                       
+                }
                 else advancedcollide(false, false, false, false, false);
             } else
             // If they can firm collide, do that
@@ -4951,7 +4952,7 @@ var maintainloop = (() => {
                 o.team = -100;
                 normal.push(o);
         }
-          if (ran.chance(0.6)) {
+          if (ran.chance(0.03)) {
             let spot, i = 30;
             do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.RhinoMonster);
