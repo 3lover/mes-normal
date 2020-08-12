@@ -4920,7 +4920,7 @@ var maintainloop = (() => {
                 rocks.push(o);
         }
       }
-      if (ran.chance(0.3)) {
+      if (ran.chance(0.003)) {
             let spot, i = 30;
             do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.beehive);
