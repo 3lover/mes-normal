@@ -2132,6 +2132,7 @@ class Entity {
             twiggle: this.facingType === 'autospin' || (this.facingType === 'locksFacing' && this.control.alt),
             layer: (this.bond != null) ? this.bound.layer : 
                     (this.type === 'wall') ? 11 : 
+                    (this.type === 'cover') ? 0 : 
                     (this.type === 'food') ? 10 : 
                     (this.type === 'tank') ? 5 :
                     (this.type === 'crasher') ? 1 :
@@ -4566,6 +4567,14 @@ var gameloop = (() => {
                     1;
                 if (instance.type === 'wall') advancedcollide(instance, other, false, false, a);
                 else advancedcollide(other, instance, false, false, a);
+            } else
+              //handle covers for survival
+              if (instance.type === 'cover' || other.type === 'cover') {
+                let a = (instance.type === 'bullet' || other.type === 'bullet') ? 
+                    1 + 10 / (Math.max(instance.velocity.length, other.velocity.length) + 10) : 
+                    1;
+                if (instance.type === 'cover') advancedcollide(false, false, false, false, false);
+                else advancedcollide(false, false, false, false, false);
             } else
             // If they can firm collide, do that
             if ((instance.type === 'crasher' && other.type === 'food') || (other.type === 'crasher' && instance.type === 'food')) {
