@@ -487,7 +487,7 @@ class io_nearestDifferentMaster extends IO {
             // Only look at those within our view, and our parent's view, not dead, not our kind, not a bullet/trap/block etc
             if (e.health.amount > 0) {
             if (!e.invuln) {
-            if (this.dangerValue !== -999) {
+            if (e.dangerValue != -999) {
             if (e.master.master.team !== this.body.master.master.team) {
             if (e.master.master.team !== -101) {
             if (e.type === 'tank' || e.type === 'crasher' || (!this.body.aiSettings.shapefriend && e.type === 'food')) {

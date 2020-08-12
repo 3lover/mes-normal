@@ -56,7 +56,7 @@
   "MIN_SPEED": 0.001,
   "FOOD_AMOUNT": 0.4, 
   "SKILL_BOOST": 5,
-  "BOTS": 10,
+  "BOTS": 1,
   "GLASS_HEALTH_FACTOR": 2,
   "MAX_NORMAL": 15,
   "MAX_ROCKS": 15,
