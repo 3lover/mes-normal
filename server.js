@@ -1462,6 +1462,10 @@ var bringToLife = (() => {
             my.range -= 1;
         }
         // Invisibility
+      if (this.cover == true){
+      my.alpha = 0
+      this.cover = false
+     };
     if (my.invisible[1]) {
         if(my.invisible[2] <= my.alpha && my.alpha >= 0){  
           my.alpha = Math.max(0.01, my.alpha - my.invisible[1]);
@@ -1656,6 +1660,7 @@ class Entity {
         this.settings = {};
         this.aiSettings = {};
         this.children = [];
+        this.cover = false;
         // Define it
         this.SIZE = 1;
         this.define(Class.genericEntity);
@@ -4573,7 +4578,7 @@ var gameloop = (() => {
                     1 + 10 / (Math.max(instance.velocity.length, other.velocity.length) + 10) : 
                     1;
                 if (instance.type === 'cover'){ 
-                  advancedcollide(false, false, false, false, false);                       
+                  advancedcollide(false, false, false, false, false);
                 }
                 else advancedcollide(false, false, false, false, false);
             } else
