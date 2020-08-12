@@ -1462,10 +1462,6 @@ var bringToLife = (() => {
             my.range -= 1;
         }
         // Invisibility
-      if (this.cover == true){
-      my.alpha = 0
-      this.cover = false
-     };
     if (my.invisible[1]) {
         if(my.invisible[2] <= my.alpha && my.alpha >= 0){  
           my.alpha = Math.max(0.01, my.alpha - my.invisible[1]);
@@ -2136,7 +2132,7 @@ class Entity {
             twiggle: this.facingType === 'autospin' || (this.facingType === 'locksFacing' && this.control.alt),
             layer: (this.bond != null) ? this.bound.layer : 
                     (this.type === 'wall') ? 11 : 
-                    (this.type === 'cover') ? 0 : 
+                    (this.type === 'cover') ? 100 : 
                     (this.type === 'food') ? 10 : 
                     (this.type === 'tank') ? 5 :
                     (this.type === 'crasher') ? 1 :
