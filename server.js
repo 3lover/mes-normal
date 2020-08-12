@@ -4788,6 +4788,8 @@ var maintainloop = (() => {
         for (let i=Math.ceil(rockcount * 0.6); i; i--) { count++; placeRoid('volc', Class.obstacle); }
         for (let i=Math.ceil(rockcount * 0.6); i; i--) { count++; placeRoid('hell', Class.bigObstacle); }
         for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('hell', Class.hugeObstacle); }
+    // for survival
+        for (let i=Math.ceil(roidcount * 0.5); i; i--) { count++; placeRoid('norm', Class.bush); }
         util.log('Placing ' + count + ' obstacles!');
     }
     placeRoids();
