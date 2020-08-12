@@ -506,10 +506,10 @@ class io_nearestDifferentMaster extends IO {
                 } else if (Math.abs(util.angleDifference(util.getDirection(this.body, e), this.body.firingArc[0])) < this.body.firingArc[1]) yaboi = true;
             }
             if (yaboi) {    
-                if (e.dangerValue >= 1){
+                //if (e.dangerValue >= 1){
                 mostDangerous = Math.max(e.dangerValue, mostDangerous);
                 return e;
-            } }
+            } //}
         }).filter((e) => { 
             // Only return the highest tier of danger
            if (this.dangerValue >= 1){
@@ -1489,9 +1489,9 @@ var bringToLife = (() => {
       if(my.invisible[0] == 2){
         my.alpha = my.invisible[2]
       }
-      //if (my.alpha <= 50){
-     // my.dangerValue = -999
-      //}
+     /* if (my.alpha <= 50){
+      my.dangerValue = -999
+      } else {my.dangerValue = my.Basedanger}*/
       };
       hit = 0
         // So we start with my master's thoughts and then we filter them down through our control stack
@@ -1900,6 +1900,9 @@ class Entity {
         }
         if (set.DANGER != null) { 
             this.dangerValue = set.DANGER; 
+        }
+        if (set.DANGER != null) { 
+            this.Basedanger = set.DANGER; 
         }
         if (set.VARIES_IN_SIZE != null) { 
             this.settings.variesInSize = set.VARIES_IN_SIZE; 
