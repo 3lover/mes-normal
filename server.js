@@ -2448,7 +2448,6 @@ class Entity {
             // Now for each of the things that kill me...
             this.collisionArray.forEach(instance => {
                 if (instance.type === 'wall') return 0;
-                if (instance.type === 'cover') {this.alpha = 0};
                 if (instance.master.settings.acceptsScore) { // If it's not food, give its master the score
                     if (instance.master.type === 'tank' || instance.master.type === 'miniboss') notJustFood = true;
                     instance.master.skill.score += jackpot;
@@ -4347,7 +4346,7 @@ var gameloop = (() => {
                     // Add to record
                     my.collisionArray.push(n);
                     n.collisionArray.push(my);
-                    if (t) { // Only if we still need to find the collision
+                  if (t) { // Only if we still need to find the collision
                         // Step to where the collision occured
                         my.x += motion._me.x * t;
                         my.y += motion._me.y * t;
