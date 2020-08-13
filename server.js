@@ -4978,7 +4978,7 @@ var maintainloop = (() => {
                 normal.push(o);
                 }
        }
-      if (normal.length < c.MAX_DESERT) {
+      if (desert.length < c.MAX_DESERT) {
         if (ran.chance(0.9)) {
             let spot, i = 30;
             do { spot = room.randomType('gold'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
@@ -4986,7 +4986,7 @@ var maintainloop = (() => {
             let o = new Entity(spot);
                 o.define(type);
                 o.team = -100;
-                normal.push(o);
+                desert.push(o);
         }
         
       }
@@ -5219,8 +5219,8 @@ var maintainloop = (() => {
                 } catch (err) { util.error(instance.label); util.error(err); instance.kill(); }
             }).filter(e => { return e; });     
             // Sum it up   
-            let maxFood = 1 + room.maxFood + 15 * census.tank;      
-            let maxNestFood = 1 + room.maxFood * room.nestFoodAmount;
+            let maxFood = 1 + room.maxFood + 15 * census.tank/  5;      
+            let maxNestFood = 1 + room.maxFood * room.nestFoodAmount/ 10;
             let foodAmount = census.sum;
             let nestFoodAmount = censusNest.sum;
             /*********** ROT OLD SPAWNERS **********/
