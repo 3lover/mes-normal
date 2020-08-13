@@ -51,7 +51,7 @@ const room = {
         square: c.WIDTH * c.HEIGHT / 100000000,
         linear: Math.sqrt(c.WIDTH * c.HEIGHT / 100000000),
     },
-    maxFood: c.WIDTH * c.HEIGHT / 60000 * c.FOOD_AMOUNT,
+    maxFood: c.WIDTH * c.HEIGHT / 1200000 * c.FOOD_AMOUNT,
     isInRoom: location => {
         return location.x >= 0 && location.x <= c.WIDTH && location.y >= 0 && location.y <= c.HEIGHT
     },    
@@ -5223,6 +5223,7 @@ var maintainloop = (() => {
             let maxNestFood = 1 + room.maxFood * room.nestFoodAmount/ 10;
             let foodAmount = census.sum;
             let nestFoodAmount = censusNest.sum;
+            if (foodAmount > 100){};
             /*********** ROT OLD SPAWNERS **********/
             foodSpawners.forEach(spawner => { if (ran.chance(1 - foodAmount/maxFood)) spawner.rot(); });
             /************** MAKE FOOD **************/
