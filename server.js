@@ -4981,7 +4981,7 @@ var maintainloop = (() => {
       if (desert.length < c.MAX_DESERT) {
         if (ran.chance(0.09)) {
             let spot, i = 30;
-            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            do { spot = room.randomType('gold'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.whirlwind);
             let o = new Entity(spot);
                 o.define(type);
@@ -5223,7 +5223,6 @@ var maintainloop = (() => {
             let maxNestFood = 1 + room.maxFood * room.nestFoodAmount/ 10;
             let foodAmount = census.sum;
             let nestFoodAmount = censusNest.sum;
-            if (foodAmount > 100){};
             /*********** ROT OLD SPAWNERS **********/
             foodSpawners.forEach(spawner => { if (ran.chance(1 - foodAmount/maxFood)) spawner.rot(); });
             /************** MAKE FOOD **************/
