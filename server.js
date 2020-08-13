@@ -4978,7 +4978,7 @@ var maintainloop = (() => {
                 normal.push(o);
                 }
        }
-      if (desert.length < c.MAX_DESERT) {
+      if (0){//desert.length < c.MAX_DESERT) {
         if (ran.chance(0.09)) {
             let spot, i = 30;
             do { spot = room.randomType('gold'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
