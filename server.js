@@ -4987,10 +4987,22 @@ var maintainloop = (() => {
                 o.define(type);
                 o.team = -100;
                 desert.push(o);
+        }        
+      }
+      if (volcano.length < c.MAX_VOLCANO) {
+        if (ran.chance(0.09)) {
+            let spot, i = 30;
+            do { spot = room.randomType('volc'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (Class.volcan);
+            let o = new Entity(spot);
+                o.define(type);
+                o.team = -100;
+                volcano.push(o);
         }
         
       }
        rocks = rocks.filter(e => { return !e.isDead(); });
+      volcano = rocks.filter(e => { return !e.isDead(); });
        normal = normal.filter(e => { return !e.isDead(); }); 
       desert = desert.filter(e => { return !e.isDead(); });
     };
