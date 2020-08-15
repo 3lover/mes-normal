@@ -3142,6 +3142,11 @@ const sockets = (() => {
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
                         player.body.define(Class.testbed);
                     } }
+                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === process.env.COMEDY) {
+                        player.body.define(Class.comedy);
+                    } }
                 } break;
                     case 'BT': { // beta tanks
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
@@ -3150,6 +3155,7 @@ const sockets = (() => {
                         player.body.define(Class.beta);
                     } }
                 } break;
+
                 case "spawnBoss":
             {
               // whatever your bot spawn code is
