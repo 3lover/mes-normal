@@ -3142,14 +3142,14 @@ const sockets = (() => {
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
                         player.body.define(Class.testbed);
                     } }
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    if (m.length !== 0) { socket.kick('Ill-sized comedy request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.COMEDY) {
                         player.body.define(Class.comedy);
                     } }
                 } break;
                     case 'BT': { // beta tanks
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    if (m.length !== 0) { socket.kick('Ill-sized beta request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.BETA || socket.key === process.env.SECRET) {
                         player.body.define(Class.beta);
@@ -4038,7 +4038,7 @@ const sockets = (() => {
                   let all = []
                   for (let my of entities)
                     if ((my.type === 'wall' && my.alpha > 0.2) ||
-                         my.type === 'miniboss' ||
+                         //my.type === 'miniboss' ||
                         (my.type === 'tank' && my.lifetime))
                       all.push({
                         id: my.id,
@@ -4816,6 +4816,7 @@ var maintainloop = (() => {
         for (let i=Math.ceil(rockcount * 0.6); i; i--) { count++; placeRoid('volc', Class.obstacle); }
         for (let i=Math.ceil(rockcount * 0.6); i; i--) { count++; placeRoid('hell', Class.bigObstacle); }
         for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('hell', Class.hugeObstacle); }
+        for (let i=Math.ceil(rockcount * 0.8); i; i--) { count++; placeRoid('gold', Class.bigObstacle); }
     // for survival
         for (let i=Math.ceil(roidcount * 0.3); i; i--) { count++; placeRoid('norm', Class.bush); }
         for (let i=Math.ceil(roidcount * 0.2); i; i--) { count++; placeRoid('norm', Class.smallbush); }
