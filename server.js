@@ -80,12 +80,6 @@ const room = {
     room.findType('bas4');
     room.findType('roid');
     room.findType('rock');
-    //for survival
-    room.findType('volc');
-    room.findType('hive');
-    room.findType('hell');
-    room.findType('gold');
-    //not for survival
     room.nestFoodAmount = 1.5 * Math.sqrt(room.nest.length) / room.xgrid / room.ygrid;
     room.random = () => {
         return {
@@ -3454,7 +3448,7 @@ const sockets = (() => {
                                 if (p.body != null) { scoreCensus[p.team - 1] += p.body.skill.score; }
                             });
                             let possiblities = [];
-                            for (let i=0, m=0; i<1; i++) { //i=4 is normal. survival mode for teams is 1
+                            for (let i=0, m=0; i<4; i++) { 
                                 let v = Math.round(1000000 * (room['bas'+(i+1)].length + 1) / (census[i] + 1) / scoreCensus[i]);
                                 if (v > m) {
                                     m = v; possiblities = [i];
@@ -4047,7 +4041,7 @@ const sockets = (() => {
                   let all = []
                   for (let my of entities)
                     if ((my.type === 'wall' && my.alpha > 0.2) ||
-                         //my.type === 'miniboss' || turned off for survival
+                         my.type === 'miniboss' || 
                         (my.type === 'tank' && my.lifetime))
                       all.push({
                         id: my.id,
@@ -4594,16 +4588,7 @@ var gameloop = (() => {
                 if (instance.type === 'wall') advancedcollide(instance, other, false, false, a);
                 else advancedcollide(other, instance, false, false, a);
             } else
-              //handle covers for survival
-              if (instance.type === 'cover' || other.type === 'cover') {
-                let a = (instance.type === 'bullet' || other.type === 'bullet') ? 
-                    1 + 10 / (Math.max(instance.velocity.length, other.velocity.length) + 10) : 
-                    1;
-                if (instance.type === 'cover'){ 
-                  advancedcollide(false, false, false, false, false);
-                }
-                else advancedcollide(false, false, false, false, false);
-            } else
+             
             // If they can firm collide, do that
             if ((instance.type === 'crasher' && other.type === 'food') || (other.type === 'crasher' && instance.type === 'food')) {
                 firmcollide(instance, other);
@@ -4821,15 +4806,6 @@ var maintainloop = (() => {
         for (let i=Math.ceil(roidcount * 0.3); i; i--) { count++; placeRoid('roid', Class.babyObstacle); }
         for (let i=Math.ceil(rockcount * 0.8); i; i--) { count++; placeRoid('rock', Class.obstacle); }
         for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('rock', Class.babyObstacle); }
-        for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('volc', Class.babyObstacle); }
-        for (let i=Math.ceil(rockcount * 0.6); i; i--) { count++; placeRoid('volc', Class.obstacle); }
-        for (let i=Math.ceil(rockcount * 0.6); i; i--) { count++; placeRoid('hell', Class.bigObstacle); }
-        for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('hell', Class.hugeObstacle); }
-        for (let i=Math.ceil(rockcount * 0.8); i; i--) { count++; placeRoid('gold', Class.bigObstacle); }
-    // for survival
-        for (let i=Math.ceil(roidcount * 0.3); i; i--) { count++; placeRoid('norm', Class.bush); }
-        for (let i=Math.ceil(roidcount * 0.2); i; i--) { count++; placeRoid('norm', Class.smallbush); }
-        for (let i=Math.ceil(roidcount * 0.1); i; i--) { count++; placeRoid('norm', Class.bigbush); }
         util.log('Placing ' + count + ' obstacles!');
     }
     placeRoids();
@@ -4932,96 +4908,6 @@ var maintainloop = (() => {
                 o.team = -100;
         }
     };
-  //the following are for survival mode:
-    let spawnRockmonsters = census => {
-      if (rocks.length < c.MAX_ROCKS) {
-      if (ran.chance(0.2)) {
-            let spot, i = 30;
-            do { spot = room.randomType('rock'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (ran.dice(80)) ? ran.choose([Class.RM1,Class.RM1, Class.RM2]) : ran.choose([Class.RM1,Class.RM1, Class.RM2]);
-            let o = new Entity(spot);
-                o.define(type);
-                o.team = -100;
-                rocks.push(o);
-        }
-         if (ran.chance(0.4)) {
-            let spot, i = 30;
-            do { spot = room.randomType('roid'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (Class.RM2);
-            let o = new Entity(spot);
-                o.define(type);
-                o.team = -100;
-                rocks.push(o); 
-        }
-        if (ran.chance(0.03)) {
-            let spot, i = 30;
-            do { spot = room.randomType('roid'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (Class.RM3);
-            let o = new Entity(spot);
-                o.define(type);
-                o.team = -100;
-                rocks.push(o);
-        }
-      }
-       if (normal.length < c.MAX_NORMAL) {
-      if (ran.chance(0.01)) {
-            let spot, i = 30;
-            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (Class.beehive);
-            let o = new Entity(spot);
-                o.define(type);
-                o.team = -100;
-                normal.push(o);
-        }
-      if (ran.chance(0.04)) {
-            let spot, i = 30;
-            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (Class.bird);
-            let o = new Entity(spot);
-                o.define(type);
-                o.team = -100;
-                normal.push(o);
-        }
-          if (ran.chance(0.01)) {
-            let spot, i = 30;
-            do { spot = room.randomType('norm'); i--; if (!i) return 0; } while (dirtyCheck(spot, (100)));
-            let type = (Class.RhinoMonster);
-            let o = new Entity(spot);
-                o.define(type);
-                o.team = -100;
-                o.define({SIZE:20});
-                o.define(Class.rhino);
-                normal.push(o);
-                }
-       }
-      if (desert.length < c.MAX_DESERT) {
-        if (ran.chance(0.09)) {
-            let spot, i = 30;
-            do { spot = room.randomType('gold'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (Class.whirlwind);
-            let o = new Entity(spot);
-                o.define(type);
-                o.team = -100;
-                desert.push(o);
-        }        
-      }
-      if (volcano.length < c.MAX_VOLCANO) {
-        if (ran.chance(0.09)) {
-            let spot, i = 30;
-            do { spot = room.randomType('volc'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (Class.volcan);
-            let o = new Entity(spot);
-                o.define(type);
-                o.team = -100;
-                volcano.push(o);
-        }
-        
-      }
-       rocks = rocks.filter(e => { return !e.isDead(); });
-      volcano = rocks.filter(e => { return !e.isDead(); });
-       normal = normal.filter(e => { return !e.isDead(); }); 
-      desert = desert.filter(e => { return !e.isDead(); });
-    };
     // The NPC function
     let makenpcs = (() => {
         // Make base protectors if needed.
@@ -5053,7 +4939,6 @@ var maintainloop = (() => {
             spawnBosses(census);
             spawnToxic(census);
             spawnBoulder(census);
-            spawnRockmonsters(census);
             let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, 
                            
                       /*2*/      Class.botSpike, Class.botHiderGun, Class.botIncongruencyRammer];
@@ -5392,5 +5277,5 @@ setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
 //setInterval(poisonLoop, room.cycleSpeed * 7)
 //setInterval(freezeLoop, room.cycleSpeed * 7)
-//turned off for survival lag purposes
+//turned off for lag purposes
 

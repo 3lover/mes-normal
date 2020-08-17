@@ -19,5 +19,4 @@
     ["rock", "norm", "rock", "rock", "roid", "roid"],
     ["norm", "rock", "rock", "roid", "roid", "bas1"]
 
-//for survival mode woth 2000 HEIGHT and 10000 WIDTH:
 ["bas1","norm", "roid", "roid", "nest"]

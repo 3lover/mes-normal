@@ -11,16 +11,22 @@
   "runSpeed": 1.5,
   "maxHeartbeatInterval": 300000,
   "verbose": true,
-  "WIDTH": 20000,
-  "HEIGHT": 2000,
+  "WIDTH": 5000,
+  "HEIGHT": 5000,
   "MODE": "tdm",
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    ["bas1","norm","norm", "rock", "rock", "roid", "roid", "nest", "nest", "gold",  "gold", "volc", "volc","hell", "hell"]
+    [ "roid", "norm", "norm", "norm","norm", "norm", "roid"],
+    [ "norm", "rock", "rock", "rock","rock", "rock", "norm"],
+    [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
+    [ "norm", "rock", "nest", "roid","nest", "rock", "norm"],
+    [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
+    [ "norm", "rock", "rock", "rock","rock", "rock", "norm"],
+    [ "roid", "norm", "norm", "norm","norm", "norm", "roid"]
     ],
-  "X_GRID": 15,
-  "Y_GRID": 1,
+  "X_GRID": 7,
+  "Y_GRID": 7,
   "DAMAGE_CONSTANT": 0.6,
   "KNOCKBACK_CONSTANT": 1,
   "ROOM_BOUND_FORCE": 0.1,
@@ -57,12 +63,6 @@
   "FOOD_AMOUNT": 0.4, 
   "SKILL_BOOST": 5,
   "BOTS": 0,
-  "GLASS_HEALTH_FACTOR": 2,
-  "MAX_NORMAL": 15,
-  "MAX_ROCKS": 25,
-  "MAX_DESERT": 3,
-  "MAX_HELL": 15,
-  "MAX_VOLCANO": 15,
-  "MAX_NEST": 15
+  "GLASS_HEALTH_FACTOR": 2
 }
   
