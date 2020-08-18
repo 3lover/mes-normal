@@ -16,7 +16,7 @@
   "MODE": "tdm",
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
-  "ROOM_SETUP": [
+  "ROOM_SETUP_FFA": [
     [ "roid", "norm", "norm", "norm","norm", "norm", "roid"],
     [ "norm", "rock", "rock", "rock","rock", "rock", "norm"],
     [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
@@ -24,6 +24,15 @@
     [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
     [ "norm", "rock", "rock", "rock","rock", "rock", "norm"],
     [ "roid", "norm", "norm", "norm","norm", "norm", "roid"]
+    ],
+  "ROOM_SETUP_TDM": [
+    [ "bas2", "bas2", "norm", "norm","norm", "bas3", "bas3"],
+    [ "bas2", "roid", "rock", "rock","rock", "roid", "bas3"],
+    [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
+    [ "norm", "rock", "nest", "roid","nest", "rock", "norm"],
+    [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
+    [ "bas1", "roid", "rock", "rock","rock", "roid", "bas4"],
+    [ "bas1", "bas1", "norm", "norm","norm", "bas1", "bas4"]
     ],
   "X_GRID": 7,
   "Y_GRID": 7,
