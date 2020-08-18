@@ -2953,7 +2953,7 @@ const sockets = (() => {
                     /*if (m.length !== 1) { socket.kick('Ill-sized key request.'); return 1; }
                     // Get data
                     // Verify it
-                    if (typeof key !== 'string') { socket.kick('Weird key offered.'); return 1; }
+                    if (typeof key !== 'string') { .kick('Weird key offered.'); return 1; }
                     if (key.length > 64) { socket.kick('Overly-long key offered.'); return 1; }
                     if (socket.status.verified) { socket.kick('Duplicate player spawn attempt.'); return 1; }
                     // Otherwise proceed to check if it's available.
@@ -4808,7 +4808,6 @@ var maintainloop = (() => {
         for (let i=Math.ceil(rockcount * 0.8); i; i--) { count++; placeRoid('rock', Class.obstacle); }
         for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('rock', Class.babyObstacle); }
         util.log('Placing ' + count + ' obstacles!');
-        
     }
     placeRoids();
     // Spawning functions
