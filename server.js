@@ -3159,7 +3159,7 @@ const sockets = (() => {
                         player.body.define(Class.beta);
                     } }
                 } break;
-            if(socket.servermode == "normal"){modeserver = "_UUU"};
+            
                 case "spawnBoss":
             {
               // whatever your bot spawn code is
@@ -4808,7 +4808,7 @@ var maintainloop = (() => {
         for (let i=Math.ceil(rockcount * 0.8); i; i--) { count++; placeRoid('rock', Class.obstacle); }
         for (let i=Math.ceil(rockcount * 0.5); i; i--) { count++; placeRoid('rock', Class.babyObstacle); }
         util.log('Placing ' + count + ' obstacles!');
-        util.log('mode?:' + modeserver);
+        
     }
     placeRoids();
     // Spawning functions
