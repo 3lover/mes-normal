@@ -42,9 +42,9 @@ const room = {
     cycleSpeed: 1000 / roomSpeed / 30,
     width: c.WIDTH,
     height: c.HEIGHT,
-    setup: c.ROOM_SETUP,
-    xgrid: c.X_GRID, 
-    ygrid: c.Y_GRID,
+    setup: c.ROOM_SETUP_FFA,
+    xgrid: c.X_GRID_FFA, 
+    ygrid: c.Y_GRID_FFA,
     gameMode: c.MODE,
     skillBoost: c.SKILL_BOOST,
     scale: {
@@ -2995,7 +2995,7 @@ const sockets = (() => {
                             'R',
                             room.width,
                             room.height,
-                            JSON.stringify(c.ROOM_SETUP), 
+                            JSON.stringify(c.ROOM_SETUP_FFA), 
                             JSON.stringify(util.serverStartTime),
                             roomSpeed
                         );
@@ -3158,7 +3158,7 @@ const sockets = (() => {
                         player.body.define(Class.beta);
                     } }
                 } break;
-
+            if(socket.key)
                 case "spawnBoss":
             {
               // whatever your bot spawn code is

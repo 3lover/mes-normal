@@ -13,7 +13,7 @@
   "verbose": true,
   "WIDTH": 5000,
   "HEIGHT": 5000,
-  "MODE": "tdm",
+  "MODE": "ffa",
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP_FFA": [
@@ -32,10 +32,12 @@
     [ "norm", "rock", "nest", "roid","nest", "rock", "norm"],
     [ "norm", "rock", "nest", "nest","nest", "rock", "norm"],
     [ "bas1", "roid", "rock", "rock","rock", "roid", "bas4"],
-    [ "bas1", "bas1", "norm", "norm","norm", "bas1", "bas4"]
+    [ "bas1", "bas1", "norm", "norm","norm", "bas4", "bas4"]
     ],
-  "X_GRID": 7,
-  "Y_GRID": 7,
+  "X_GRID_FFA": 7,
+  "Y_GRID_FFA": 7,
+  "X_GRID_TDM": 7,
+  "Y_GRID_TDM": 7,
   "DAMAGE_CONSTANT": 0.6,
   "KNOCKBACK_CONSTANT": 1,
   "ROOM_BOUND_FORCE": 0.1,
