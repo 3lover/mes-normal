@@ -1,4 +1,3 @@
-
 /*jslint node: true */
 /*jshint -W061 */
 /*global goog, Map, let */
