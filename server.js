@@ -1600,6 +1600,7 @@ class Entity {
        	this.poisonTimer = 0
         this.poisonimmune = false
         this.poisonSpeed = false
+        this.freezeSpeed = false
         this.frozen = false
         this.freeze = false
         this.frozenBy = -1
@@ -1832,6 +1833,10 @@ class Entity {
         if (set.POISONSPEED != null) {
           this.poisonSpeed = set.POISONSPEED
         }else (this.poisonSpeed = 0.995)
+      
+      if (set.FREEZESPEED != null) {
+          this.freezeSpeed = set.FREEZESPEED
+        }else (this.freezeSpeed = 0.995)
       
         if (set.POISONED != null) {
           this.poisoned = set.POISONED
@@ -4644,6 +4649,7 @@ var gameloop = (() => {
                 // Apply friction.
                 my.friction();
                 poison(my);
+                freeze(my);
                 my.confinementToTheseEarthlyShackles();
                 logs.selfie.set();
                 my.takeSelfie();
@@ -4739,10 +4745,9 @@ var gameloop = (() => {
       } 
       }
     )};
-
-    // Fun stuff, like RAINBOWS :D
-    function freeze(my) {
+    function freeze(element) {
       entities.forEach(function(element) {
+        let random = Math.random()
         if (element.showfreeze && random > 0.994) {
             let x = element.size + 10
             let y = element.size + 10
@@ -4757,6 +4762,7 @@ var gameloop = (() => {
             o.define(Class['freezeEffect'])
         }
 		if (element.frozen) {// && element.type == 'tank'
+            if(random > 0.994){
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4768,10 +4774,8 @@ var gameloop = (() => {
             y: element.y + y
             })
             o.define(Class['freezeEffect'])
- 
-            if (!element.invuln) {
             }
-
+            if (element.freezeSpeed <= random){
             element.freezeTime -= 1
             if (element.freezeTime <= 0) element.frozen = false
  
@@ -4782,7 +4786,8 @@ var gameloop = (() => {
             }
           }
       }
-    )}
+      }
+    )};
 var maintainloop = (() => {
     // Place obstacles
   function placeRoids() {
@@ -4941,20 +4946,19 @@ var maintainloop = (() => {
             spawnBosses(census);
             spawnToxic(census);
             spawnBoulder(census);
-            let botlist = [Class.botBoosterRammer, Class.botOblivion, Class.botBasicGun, 
-                           
-                      /*2*/      Class.botSpike, Class.botHiderGun, Class.botIncongruencyRammer];
+            let botlist = [Class.botRammer, Class.botGun];
             
           let tanklist = [Class.booster,          Class.oblivion,       Class.basic,           
                            
                      /*2*/       Class.spike,    Class.hider,       Class.botincongru];
           
              var j = [Math.floor(Math.random() * botlist.length)]
+             var k = [Math.floor(Math.random() * botlist.length)]
                 if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
                     o.color = 17;
-                    o.define(botlist[j]);
-                    o.define(tanklist[j]);
+                    o.define(Class.botRammer);//botlist[j]
+                    o.define(Class.poison);//tanklist[j]
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                     o.color = 16;
