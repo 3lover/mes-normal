@@ -4697,7 +4697,7 @@ var gameloop = (() => {
     function poison(element) {
       entities.forEach(function(element) {
         let random = Math.random()
-        if (element.showpoison && random > 0.994) {
+        if (element.showpoison && random > 0.997) {
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4711,7 +4711,7 @@ var gameloop = (() => {
             o.define(Class['poisonEffect'])
         }
 		if (element.poisoned) {// && element.type == 'tank'
-            if(random > 0.994){
+            if(random > 0.997){
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
