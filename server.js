@@ -1599,6 +1599,7 @@ class Entity {
         this.showpoison = false
        	this.poisonTimer = 0
         this.poisonimmune = false
+        this.poisonSpeed = false
         this.frozen = false
         this.freeze = false
         this.frozenBy = -1
@@ -1828,6 +1829,10 @@ class Entity {
         if (set.POISONIMMUNE != null) {
           this.poisonimmune = set.POISONIMMUNE
         }
+        if (set.POISONSPEED != null) {
+          this.poisonSpeed = set.POISONSPEED
+        }else (this.poisonSpeed = 0.99)
+      
         if (set.POISONED != null) {
           this.poisoned = set.POISONED
         }
@@ -4713,13 +4718,15 @@ var gameloop = (() => {
             }) 
             o.define(Class['poisonEffect'])
             }
+            if (element.poisonSpeed <= random){
             if (element.poisonimmune == true){element.poisoned = false}else{
+           let poisondeath = 1
+            if (element.health.amount <= 0){poisondeath = 0}
             if (!element.invuln) {
               element.health.amount -= element.health.max / (55 - element.poisonLevel)
               element.shield.amount -= element.shield.max / (35 - element.poisonLevel)
             }
             }
-      
             element.poisonTime -= 1
             if (element.poisonTime <= 0) element.poisoned = false
  
@@ -4729,6 +4736,7 @@ var gameloop = (() => {
               element.sendMessage('You have been killed by ' + element.poisonedBy.name + ' with poison.')
             }
           }
+      } 
       }
     )};
    // return () => {
