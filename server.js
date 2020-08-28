@@ -4686,8 +4686,6 @@ var gameloop = (() => {
     function poison(element) {
       entities.forEach(function(element) {
         let random = Math.random()
-        let iterator = 0
-        if(iterator >= 100){
         if (element.showpoison && random > 0.99) {
             let x = element.size + 10
             let y = element.size + 10
@@ -4731,7 +4729,6 @@ var gameloop = (() => {
               element.sendMessage('You have been killed by ' + element.poisonedBy.name + ' with poison.')
             }
           }
-      }else{iterator++}
       }
     )};
    // return () => {
