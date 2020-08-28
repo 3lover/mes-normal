@@ -4638,7 +4638,7 @@ var gameloop = (() => {
                 logs.life.mark();
                 // Apply friction.
                 my.friction();
-                poisonloop
+                poison(my);
                 my.confinementToTheseEarthlyShackles();
                 logs.selfie.set();
                 my.takeSelfie();
@@ -4681,11 +4681,12 @@ var gameloop = (() => {
 })();
 // A less important loop. Runs at an actual 5Hz regardless of game speed.
 
-var poisonLoop = (() => {
+//function poisonLoop(my) {
     // Fun stuff, like RAINBOWS :D
     function poison(my) {
       entities.forEach(function(element) {
-        if (element.showpoison) {
+        let random = Math.random()
+        if (element.showpoison && random > 0.95) {
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4699,6 +4700,7 @@ var poisonLoop = (() => {
             o.define(Class['poisonEffect'])
         }
 		if (element.poisoned) {// && element.type == 'tank'
+            if(random > 0.95){
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4727,12 +4729,12 @@ var poisonLoop = (() => {
             }
           }
       }
-    )}
-    return () => {
+    )};
+   // return () => {
         // run the poison
-        poison()
-    };
-})();
+      //  poison()
+   // };
+//};
 var freezeLoop = (() => {
     // Fun stuff, like RAINBOWS :D
     function freeze(my) {
@@ -5276,7 +5278,6 @@ let websockets = (() => {
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
-setInterval(poisonLoop, room.cycleSpeed * 7)
+//setInterval(poisonLoop, room.cycleSpeed * 7)
 setInterval(freezeLoop, room.cycleSpeed * 7)
 //turned off for lag purposes
-
