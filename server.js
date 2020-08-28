@@ -5138,8 +5138,8 @@ var maintainloop = (() => {
                 } catch (err) { util.error(instance.label); util.error(err); instance.kill(); }
             }).filter(e => { return e; });     
             // Sum it up   
-            let maxFood = 1 + room.maxFood + 15 * census.tank/  5;      
-            let maxNestFood = 1 + room.maxFood * room.nestFoodAmount/ 10;
+            let maxFood = 1 + room.maxFood + 15 * census.tank;      
+            let maxNestFood = 1 + room.maxFood * room.nestFoodAmount;
             let foodAmount = census.sum;
             let nestFoodAmount = censusNest.sum;
             /*********** ROT OLD SPAWNERS **********/
