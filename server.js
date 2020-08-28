@@ -4638,6 +4638,7 @@ var gameloop = (() => {
                 logs.life.mark();
                 // Apply friction.
                 my.friction();
+                poisonloop
                 my.confinementToTheseEarthlyShackles();
                 logs.selfie.set();
                 my.takeSelfie();
