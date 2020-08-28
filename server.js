@@ -4946,19 +4946,19 @@ var maintainloop = (() => {
             spawnBosses(census);
             spawnToxic(census);
             spawnBoulder(census);
-            let botlist = [Class.botRammer, Class.botGun];
+            let botlist = [Class.botRammer, Class.botGun, Class.botHeavyRammer, Class.botGun2, Class.botBigGun];
             
           let tanklist = [Class.booster,          Class.oblivion,       Class.basic,           
                            
-                     /*2*/       Class.spike,    Class.hider,       Class.botincongru];
+                         Class.spike,    Class.hider,       Class.botincongru];
           
              var j = [Math.floor(Math.random() * botlist.length)]
-             var k = [Math.floor(Math.random() * botlist.length)]
+             var k = [Math.floor(Math.random() * tanklist.length)]
                 if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
                     o.color = 17;
-                    o.define();//botlist[j]
-                    o.define(Class.poison);//tanklist[j]
+                    o.define(Class.botBigGun);//botlist[j]
+                    o.define(tanklist[k]);//tanklist[k]
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                     o.color = 16;
