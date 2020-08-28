@@ -4683,10 +4683,12 @@ var gameloop = (() => {
 
 //function poisonLoop(my) {
     // Fun stuff, like RAINBOWS :D
-    function poison(my) {
+    function poison(element) {
       entities.forEach(function(element) {
         let random = Math.random()
-        if (element.showpoison && random > 0.95) {
+        let iterator = 0
+        if(iterator >= 100){
+        if (element.showpoison && random > 0.99) {
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4700,7 +4702,7 @@ var gameloop = (() => {
             o.define(Class['poisonEffect'])
         }
 		if (element.poisoned) {// && element.type == 'tank'
-            if(random > 0.95){
+            if(random > 0.99){
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4710,8 +4712,9 @@ var gameloop = (() => {
             var o = new Entity({
             x: element.x + x,
             y: element.y + y
-            })
+            }) 
             o.define(Class['poisonEffect'])
+            }
             if (element.poisonimmune == true){element.poisoned = false}else{
             if (!element.invuln) {
               element.health.amount -= element.health.max / (55 - element.poisonLevel)
@@ -4728,6 +4731,7 @@ var gameloop = (() => {
               element.sendMessage('You have been killed by ' + element.poisonedBy.name + ' with poison.')
             }
           }
+      }else{iterator++}
       }
     )};
    // return () => {
