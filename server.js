@@ -1831,7 +1831,7 @@ class Entity {
         }
         if (set.POISONSPEED != null) {
           this.poisonSpeed = set.POISONSPEED
-        }else (this.poisonSpeed = 0.99)
+        }else (this.poisonSpeed = 0.995)
       
         if (set.POISONED != null) {
           this.poisoned = set.POISONED
@@ -4691,7 +4691,7 @@ var gameloop = (() => {
     function poison(element) {
       entities.forEach(function(element) {
         let random = Math.random()
-        if (element.showpoison && random > 0.99) {
+        if (element.showpoison && random > 0.994) {
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4705,7 +4705,7 @@ var gameloop = (() => {
             o.define(Class['poisonEffect'])
         }
 		if (element.poisoned) {// && element.type == 'tank'
-            if(random > 0.99){
+            if(random > 0.994){
             let x = element.size + 10
             let y = element.size + 10
             Math.random() < 0.5 ? x *= -1 : x
@@ -4720,7 +4720,7 @@ var gameloop = (() => {
             }
             if (element.poisonSpeed <= random){
             if (element.poisonimmune == true){element.poisoned = false}else{
-           let poisondeath = 1
+           var poisondeath = 1
             if (element.health.amount <= 0){poisondeath = 0}
             if (!element.invuln) {
               element.health.amount -= element.health.max / (55 - element.poisonLevel)
@@ -4730,7 +4730,7 @@ var gameloop = (() => {
             element.poisonTime -= 1
             if (element.poisonTime <= 0) element.poisoned = false
  
-            if (element.health.amount <= 0 && element.poisonedBy != undefined && element.poisonedBy.skill != undefined) {
+            if (poisondeath == 1 && element.health.amount <= 0 && element.poisonedBy != undefined && element.poisonedBy.skill != undefined) {
               element.poisonedBy.skill.score += Math.ceil(util.getJackpot(element.poisonedBy.skill.score));
               element.poisonedBy.sendMessage('You killed ' + element.name + ' with poison.'); 
               element.sendMessage('You have been killed by ' + element.poisonedBy.name + ' with poison.')
