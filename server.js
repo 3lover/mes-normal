@@ -4866,7 +4866,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 6000 && ran.dice(16000 - timer)) {
+            if (timer > 3000 && ran.dice(8000 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -4876,6 +4876,13 @@ var maintainloop = (() => {
                         break;
                     case 1: 
                         choice = [[Class.palisade], 1, 'castle', 'norm']; 
+                        sockets.broadcast('A strange trembling...');
+                        break;
+                    case 3: 
+                        choice = [[Class.mothership], 2, 'a', 'norm'];
+                        break;
+                    case 4: 
+                        choice = [[Class.armygeneral], 1, 'castle', 'norm']; 
                         sockets.broadcast('A strange trembling...');
                         break;
                 }
