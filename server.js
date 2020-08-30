@@ -4953,17 +4953,17 @@ var maintainloop = (() => {
             spawnBosses(census);
             spawnToxic(census);
             spawnBoulder(census);
-            var type = Math.floor(Math.random() * 2)
-            if (type = 1){
+            var type = Math.random()
+            if (type >= 0.8){
         var botlist = [Class.botGun, Class.botGun2, Class.botBigGun, Class.botGlassBarrel];
             
-        var tanklist = [Class.booster, Class.oblivion, Class.basic, Class.hider, Class.poison, Class.chiller, Class.dictator, Class.warrior, Class.quintuplet,
-                       Class.clickbait, Class.shrapnel, Class.];
+        var tanklist = [Class.booster, Class.oblivion, Class.basic, Class.hider, Class.poison, Class.chiller, Class.dictator, Class.warrior,
+                       Class.clickbait, Class.shrapnel, Class.colony, Class.zombimancer];
             }
-          if (type = 2){
+          if (type < 0.8){
         var botlist = [Class.botRammer,  Class.botHeavyRammer];
             
-        var tanklist = [Class.booster,  Class.spike];
+        var tanklist = [Class.booster,  Class.spike, Class.frisbee, Class.chainmeal, Class.corroder, Class.conman, Class.buzzer];
             }
              var j = [Math.floor(Math.random() * botlist.length)]
              var k = [Math.floor(Math.random() * tanklist.length)]
