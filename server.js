@@ -1836,7 +1836,7 @@ class Entity {
       
       if (set.FREEZESPEED != null) {
           this.freezeSpeed = set.FREEZESPEED
-        }else (this.freezeSpeed = 0.995)
+        }else (this.freezeSpeed = 0.998)
       
         if (set.POISONED != null) {
           this.poisoned = set.POISONED
