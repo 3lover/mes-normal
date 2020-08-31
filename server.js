@@ -1760,6 +1760,9 @@ class Entity {
         if (set.COLOR != null) { 
             this.color = set.COLOR; 
         }   
+        if (set.BCOLOR != null) { 
+            this.bcolor = set.BCOLOR; 
+        }   
         if (set.CONTROLLERS != null) { 
             let toAdd = [];
             set.CONTROLLERS.forEach((ioName) => {
@@ -2153,6 +2156,7 @@ class Entity {
                     (this.type === 'crasher') ? 1 :
                     0,
             color: this.color,
+            bcolor: this.bcolor,
             name: this.name,
             score: this.skill.score,
             guns: this.guns.map(gun => gun.getLastShot()),
@@ -2653,6 +2657,7 @@ var http = require('http'),
                 x: rounder(e.x),
                 y: rounder(e.y),
                 color: e.color,
+                bcolor: e.bcolor,
                 shape: e.shapeData,
                 size: rounder(e.size),
                 realSize: rounder(e.realSize),
@@ -2668,7 +2673,6 @@ var http = require('http'),
                         width: rounder(gun.width),
                         aspect: rounder(gun.aspect),
                         angle: rounder(gun.angle),
-                        color: rounder(gun.bcolor),
                     };
                 }),
                 turrets: e.turrets.map(function(t) { 
