@@ -1650,7 +1650,6 @@ class Entity {
             color: '#FFFFFF',
             amount: 0,
         };
-        this.bcolor = '#A7A7AF'
         // Objects
         this.skill = new Skill();
         this.health = new HealthType(1, 'static', 0);
@@ -1760,9 +1759,6 @@ class Entity {
         }
         if (set.COLOR != null) { 
             this.color = set.COLOR; 
-        }   
-        if (set.BCOLOR != null) { 
-            this.bcolor = set.BCOLOR; 
         }   
         if (set.CONTROLLERS != null) { 
             let toAdd = [];
@@ -3598,9 +3594,7 @@ const sockets = (() => {
                             // 14: shield
                             Math.round(255 * data.shield),
                             // 15: alpha
-                            Math.round(255 * data.alpha),
-                            // 16: barrel color
-                        //    data.bcolor,
+                            Math.round(255 * data.alpha)
                         );
                         if (data.type & 0x04) {
                             output.push(
