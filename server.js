@@ -1762,7 +1762,7 @@ class Entity {
         }   
         if (set.BCOLOR != null) { 
             this.bcolor = set.BCOLOR; 
-        }   
+        }else{this.bcolor = '#A7A7AF'};   
         if (set.CONTROLLERS != null) { 
             let toAdd = [];
             set.CONTROLLERS.forEach((ioName) => {
@@ -2657,7 +2657,6 @@ var http = require('http'),
                 x: rounder(e.x),
                 y: rounder(e.y),
                 color: e.color,
-                bcolor: e.bcolor,
                 shape: e.shapeData,
                 size: rounder(e.size),
                 realSize: rounder(e.realSize),
@@ -2673,6 +2672,7 @@ var http = require('http'),
                         width: rounder(gun.width),
                         aspect: rounder(gun.aspect),
                         angle: rounder(gun.angle),
+                        bcolor: rounder(gun.bcolor),
                     };
                 }),
                 turrets: e.turrets.map(function(t) { 
