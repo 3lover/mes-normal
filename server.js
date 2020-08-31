@@ -1760,6 +1760,9 @@ class Entity {
         if (set.COLOR != null) { 
             this.color = set.COLOR; 
         }   
+        if (set.BCOLOR != null) { 
+            this.bcolor = set.BCOLOR; 
+        }   
         if (set.CONTROLLERS != null) { 
             let toAdd = [];
             set.CONTROLLERS.forEach((ioName) => {
@@ -2153,6 +2156,7 @@ class Entity {
                     (this.type === 'crasher') ? 1 :
                     0,
             color: this.color,
+            bcolor: this.bcolor,
             name: this.name,
             score: this.skill.score,
             guns: this.guns.map(gun => gun.getLastShot()),
@@ -2653,6 +2657,7 @@ var http = require('http'),
                 x: rounder(e.x),
                 y: rounder(e.y),
                 color: e.color,
+                bcolor: e.bcolor,
                 shape: e.shapeData,
                 size: rounder(e.size),
                 realSize: rounder(e.realSize),
@@ -3367,6 +3372,7 @@ const sockets = (() => {
                         // Update most things
                         gui.fps.update(Math.min(1, global.fps / roomSpeed / 1000 * 30));
                         gui.color.update(gui.master.teamColor);
+                        gui.bcolor.update(gui.master.teamColor);
                         gui.label.update(b.index);
                         gui.score.update(b.skill.score);
                         gui.points.update(b.skill.points);
@@ -3427,6 +3433,7 @@ const sockets = (() => {
                             points: floppy(),
                             upgrades: floppy(),
                             color: floppy(),
+                            bcolor: floppy(),
                             skills: floppy(),
                             topspeed: floppy(),
                             accel: floppy(),
@@ -3594,7 +3601,9 @@ const sockets = (() => {
                             // 14: shield
                             Math.round(255 * data.shield),
                             // 15: alpha
-                            Math.round(255 * data.alpha)
+                            Math.round(255 * data.alpha),
+                            // 16: barrel color
+                            data.bcolor,
                         );
                         if (data.type & 0x04) {
                             output.push(
