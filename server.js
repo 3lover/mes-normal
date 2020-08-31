@@ -4961,8 +4961,8 @@ var maintainloop = (() => {
                        Class.clickbait, Class.shrapnel, Class.colony, Class.zombimancer, Class.poundgunner, Class.electro, Class.map, Class.minelayer2,
                        Class.torpedo, Class.Uboat];
             }
-          if (type < 0.2){
-        var botlist = [Class.botRammer,  Class.botHeavyRammer];
+          if (type < 1){
+        var botlist = [Class.botRammer];
             
         var tanklist = [Class.booster,  Class.spike, Class.frisbee, Class.chainmeal, Class.corroder, Class.conman, Class.buzzer];
             }
