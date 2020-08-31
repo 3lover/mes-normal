@@ -4961,10 +4961,10 @@ var maintainloop = (() => {
                        Class.clickbait, Class.shrapnel, Class.colony, Class.zombimancer, Class.poundgunner, Class.electro, Class.map, Class.minelayer2,
                        Class.torpedo, Class.Uboat];
             }
-          if (type < 1){
-        var botlist = [Class.botRammer];
+          if (type < 0.2){
+        var botlist = [Class.botRammer,  Class.botHeavyRammer];
             
-        var tanklist = [Class.booster,  Class.spike, Class.frisbee, Class.chainmeal, Class.corroder, Class.conman, Class.buzzer];
+        var tanklist = [Class.booster,  Class.spike, Class.frisbee, Class.corroder, Class.conman];
             }
              var j = [Math.floor(Math.random() * botlist.length)]
              var k = [Math.floor(Math.random() * tanklist.length)]
