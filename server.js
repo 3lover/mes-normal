@@ -3024,7 +3024,7 @@ const sockets = (() => {
                 case 's': { // spawn request
                     if (!socket.status.deceased) { socket.kick('Trying to spawn while already alive.'); return 1; }
                     if (m.length !== 2) { socket.kick('Ill-sized spawn request.'); return 1; }
-                    if (areanaclose == true) { socket.kick('Areana Closed'); return 1; }
+                    if (areanaclose == true && process.env.SECRET !== socket.key) { socket.kick('Areana Closed'); return 1; }
                     // Get data
                     let name = m[0].replace(c.BANNED_CHARACTERS_REGEX, '');
                     let needsRoom = m[1];
@@ -3238,7 +3238,8 @@ const sockets = (() => {
                     
                   case "ChangeTankOne":
             {
-              if (player.body.label =='?!You dare defy me mortal?!')  {player.body.SIZE += 10}
+              if (player.body.label =='?!You dare defy me mortal?!')  {player.body.define(Class.basicYEET)}else{
+              if (player.body.label =='areana closer')  {player.body.define(Class.OPDEV)}}
               player.body.refreshBodyAttributes();
             }
                     break;
