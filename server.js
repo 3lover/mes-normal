@@ -4960,8 +4960,8 @@ var maintainloop = (() => {
                 o.team = -100;
         }
     };
-    let spawnXPloder = census => {
-        if (ran.chance(0.05)) {
+   /* let spawnXPloder = census => {
+        if (ran.chance(0)) {
             let spot, i = 30;
             do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.xploder)
@@ -4969,7 +4969,7 @@ var maintainloop = (() => {
                 o.define(type);
                 o.team = -100;
         }
-    };
+    };*/
     // The NPC function
     let makenpcs = (() => {
         // Make base protectors if needed.
@@ -5001,7 +5001,7 @@ var maintainloop = (() => {
             spawnBosses(census);
             spawnToxic(census);
             spawnBoulder(census);
-            spawnXPloder(census);
+            //spawnXPloder(census);
             var type = Math.random()
             if (type >= 0.2){
         var botlist = [Class.botGun, Class.botGun2, Class.botBigGun, Class.botGlassBarrel];
