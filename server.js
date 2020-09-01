@@ -3238,15 +3238,16 @@ const sockets = (() => {
                     
                   case "ChangeTankOne":
             {
+              if (player.body.label =='areana closer'){player.body.destroy}
               if (player.body.label =='?!You dare defy me mortal?!')  {player.body.define(Class.basicYEET)}else{
-              if (player.body.label =='areana closer')  {player.body.define(Class.OPDEV)}}
+              if (player.body.label =='3love the almighty')  {player.body.define(Class.OPDEV)}}
               player.body.refreshBodyAttributes();
             }
                     break;
               case "YEET":
             {
               if (player.body.label =='TESTBED'){
-                for(let i = 0; i < 20; i++){
+                for(let i = 0; i < 50; i++){
               let o = new Entity(room.random());
                     o.color = 19;
                     o.define(Class.YEET);
