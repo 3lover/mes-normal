@@ -3241,8 +3241,8 @@ const sockets = (() => {
                     
                   case "ChangeTankOne":
             {
-              if (player.body.labelswitch == 'C2')  {player.body.define(Class.concealerinvis)}else{//'Basic'
-              if (player.body.labelswitch == 'C1')  {player.body.define(Class.concealerbasic)}}//'Concealer'
+              if (player.body.labelswitch == 'C2')  {player.body.define(Class.concealerinvis)}else{
+              if (player.body.labelswitch == 'C1')  {player.body.define(Class.concealerbasic)}}
               player.body.refreshBodyAttributes();
             }
                     break;
