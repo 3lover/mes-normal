@@ -2672,7 +2672,7 @@ var http = require('http'),
                         width: rounder(gun.width),
                         aspect: rounder(gun.aspect),
                         angle: rounder(gun.angle),
-                        bcolor: rounder(gun.bcolor),
+                        //bcolor: rounder(gun.bcolor),
                     };
                 }),
                 turrets: e.turrets.map(function(t) { 
