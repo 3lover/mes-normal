@@ -3236,7 +3236,7 @@ const sockets = (() => {
                     
                   case "ChangeTankOne":
             {
-              if (player.body.label =='?!You dare defy me mortal?!')  {player.body}
+              if (player.body.label =='?!You dare defy me mortal?!')  {player.body.SIZE += 10}
               player.body.refreshBodyAttributes();
             }
                     break;
@@ -3247,11 +3247,12 @@ const sockets = (() => {
                     o.color = 19;
                     o.define(Class.YEET);
                     o.define(Class.basicYEET);
-                    o.define({SIZE:30});
+                    o.define({SIZE:30000000000000000000});
                     o.name += ran.blackbox();
                     o.refreshBodyAttributes();
                     o.color = 3;
                     bots.push(o);
+                    
             } }
                     break;
               case "SD":
@@ -5351,4 +5352,3 @@ let websockets = (() => {
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
-//turned off for lag purposes
