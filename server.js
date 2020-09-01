@@ -2214,6 +2214,14 @@ class Entity {
             },
             a = this.acceleration / roomSpeed;
         switch (this.motionType) {
+        case "accel":
+   this.maxSpeed = this.topSpeed;
+   this.damp = -0.05;
+break;
+case "grow":
+   this.SIZE += 1;
+   this.maxSpeed = this.topSpeed;
+break;
         case 'glide':
             this.maxSpeed = this.topSpeed;
             this.damp = 0.05;
@@ -2442,6 +2450,29 @@ class Entity {
         this.damageRecieved = 0;
         // Check for death
         if (this.isDead()) {
+          //Shoot on death
+      this.guns.forEach(gun => {
+      if (gun.shootOnDeath) {
+        // get Skills
+        let sk =
+          gun.bulletStats === "master" ? gun.body.skill : gun.bulletStats;
+        // Find the end of the gun
+        if (gun.body != null) {
+          let gx =
+            gun.offset *
+              Math.cos(gun.direction + gun.angle + gun.body.facing) +
+            (1.5 * gun.length - (gun.width * gun.settings.size) / 2) *
+              Math.cos(gun.angle + gun.body.facing);
+          let gy =
+            gun.offset *
+              Math.sin(gun.direction + gun.angle + gun.body.facing) +
+            (1.5 * gun.length - (gun.width * gun.settings.size) / 2) *
+              Math.sin(gun.angle + gun.body.facing);
+        // FIRE!
+        gun.fire(gx, gy, sk);
+        }
+      } 
+      })
             // Initalize message arrays
             let killers = [], killTools = [], notJustFood = false;
             // If I'm a tank, call me a nameless player
