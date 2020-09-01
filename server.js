@@ -3238,8 +3238,8 @@ const sockets = (() => {
                     
                   case "ChangeTankOne":
             {
-              if (player.body.label =='?!You dare defy me mortal?!')  {player.body.define(Class.basicYEET)}else{
-              if (player.body.label =='3love the almighty')  {player.body.define(Class.OPDEV)}}
+              if (player.body.define == Class.basic)  {player.body.define(Class.concealerinvis)}else{
+              if (player.body.define == Class.concealerinvis)  {player.body.define(Class.basic)}}
               player.body.refreshBodyAttributes();
             }
                     break;
