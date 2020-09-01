@@ -4961,7 +4961,7 @@ var maintainloop = (() => {
         }
     };
     let spawnXPloder = census => {
-        if (ran.chance(0.01)) {
+        if (ran.chance(0.05)) {
             let spot, i = 30;
             do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (Class.xploder)
