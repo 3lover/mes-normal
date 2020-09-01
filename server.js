@@ -1134,6 +1134,8 @@ class Gun {
                 false : info.PROPERTIES.SYNCS_SKILLS;
             this.negRecoil = (info.PROPERTIES.NEGATIVE_RECOIL == null) ?
                 false : info.PROPERTIES.NEGATIVE_RECOIL;
+            this.shootOnDeath = (info.PROPERTIES.SHOOT_ON_DEATH == null) ?
+                false : info.PROPERTIES.SHOOT_ON_DEATH;
         }                    
         let position = info.POSITION;
         this.length = position[0] / 10;
@@ -4927,6 +4929,16 @@ var maintainloop = (() => {
                 o.team = -100;
         }
     };
+    let spawnXPloder = census => {
+        if (ran.chance(0.1)) {
+            let spot, i = 30;
+            do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (Class.xploder)
+            let o = new Entity(spot);
+                o.define(type);
+                o.team = -100;
+        }
+    };
     // The NPC function
     let makenpcs = (() => {
         // Make base protectors if needed.
@@ -4958,6 +4970,7 @@ var maintainloop = (() => {
             spawnBosses(census);
             spawnToxic(census);
             spawnBoulder(census);
+            spawnXPloder(census);
             var type = Math.random()
             if (type >= 0.2){
         var botlist = [Class.botGun, Class.botGun2, Class.botBigGun, Class.botGlassBarrel];
