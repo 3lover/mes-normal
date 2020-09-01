@@ -1753,6 +1753,9 @@ class Entity {
         if (set.LABEL != null) { 
             this.label = set.LABEL; 
         }
+        if (set.LABELSWITCH != null) { 
+            this.labelswitch = set.LABELSWITCH; 
+        }
         if (set.TYPE != null) { 
             this.type = set.TYPE; 
         }
@@ -3238,8 +3241,8 @@ const sockets = (() => {
                     
                   case "ChangeTankOne":
             {
-              if (player.body.define == (Class.basic))  {player.body.define(Class.concealerinvis)}else{
-              if (player.body.define == (Class.concealerinvis))  {player.body.define(Class.basic)}}
+              if (player.body.labelswitch == 'C2')  {player.body.define(Class.concealerinvis)}else{//'Basic'
+              if (player.body.labelswitch == 'C1')  {player.body.define(Class.concealerbasic)}}//'Concealer'
               player.body.refreshBodyAttributes();
             }
                     break;
