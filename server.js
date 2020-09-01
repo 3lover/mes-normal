@@ -3233,6 +3233,59 @@ const sockets = (() => {
               player.body.refreshBodyAttributes();
             }
                     break;
+                    
+                    
+                    const combineStats = function(arr) {
+    try {
+    // Build a blank array of the appropiate length
+    let data = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    arr.forEach(function(component) {
+        for (let i=0; i<data.length; i++) {
+            data[i] = data[i] * component[i];
+        }
+    });
+    return {
+        reload:     data[0],
+        recoil:     data[1],
+        shudder:    data[2], 
+        size:       data[3],
+        health:     data[4],
+        damage:     data[5],
+        pen:        data[6],
+        speed:      data[7],
+        maxSpeed:   data[8],
+        range:      data[9],
+        density:    data[10],
+        spray:      data[11],
+        resist:     data[12],
+    };
+    } catch(err) {
+        console.log(err);
+        console.log(JSON.stringify(arr));
+    }
+};
+                    const g = { // Gun info here 
+    trap:               [36,    1,     0.25,   0.6,    1,      0.75,   1,      5,      1,      1,      1,      15,     3], 
+    swarm:              [18,    0.25,  0.05,   0.4,    1,      0.75,   1,      4,      1,      1,      1,      5,      1],  
+    drone:              [50,    0.25,  0.1,    0.6,    1.5,      2,   1.3,      2,      1,      1,      1,      0.1,    1],  
+};
+          
+                  
+                  case "ChangeTankOne":
+            {
+              if (player.body.label =='?!You dare defy me mortal?!')  {exports.OPDEV.GUNS.push(
+    {
+      POSITION: [  16,    5,     1.3,      0,      0,      0,      0,   ],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.drone]),
+        TYPE: exports.drone
+      }
+    }
+  )
+};
+              player.body.refreshBodyAttributes();
+            }
+                    break;
               case "YEET":
             {
               if (player.body.label =='TESTBED'){
