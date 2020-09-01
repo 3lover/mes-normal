@@ -3226,6 +3226,7 @@ const sockets = (() => {
                     bots.push(o);
             } }
                     break;
+                     if (player.body.label =='AI'){this.controllers = ['minion']}
               case "ChangeViewL":
             {
               if (player.body.label =='?!You dare defy me mortal?!' && player.body.FOV > 1)  {player.body.FOV -= 2}
