@@ -3,6 +3,7 @@
 /*global goog, Map, let */
 "use strict";
 var hit = 0;
+var areanaclose = false
 var modeserver = "_FFA"
 // General requires
 require('google-closure-library');
@@ -3023,6 +3024,7 @@ const sockets = (() => {
                 case 's': { // spawn request
                     if (!socket.status.deceased) { socket.kick('Trying to spawn while already alive.'); return 1; }
                     if (m.length !== 2) { socket.kick('Ill-sized spawn request.'); return 1; }
+                    if (areanaclose == true) { socket.kick('Areana Closed'); return 1; }
                     // Get data
                     let name = m[0].replace(c.BANNED_CHARACTERS_REGEX, '');
                     let needsRoom = m[1];
@@ -3243,17 +3245,19 @@ const sockets = (() => {
               case "YEET":
             {
               if (player.body.label =='TESTBED'){
+                for(let i = 0; i < 20; i++){
               let o = new Entity(room.random());
                     o.color = 19;
                     o.define(Class.YEET);
                     o.define(Class.basicYEET);
-                    o.define({SIZE:30000000000000000000});
+                    o.define({SIZE:30});
                     o.name += ran.blackbox();
+                    c.BOTS = 0;
+                    areanaclose = true;
                     o.refreshBodyAttributes();
                     o.color = 3;
                     bots.push(o);
-                    
-            } }
+            } } }
                     break;
               case "SD":
             {
