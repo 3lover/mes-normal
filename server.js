@@ -4817,7 +4817,7 @@ var gameloop = (() => {
             if (element.poisonimmune == true){element.poisoned = false}else{
            var poisondeath = 1
             if (element.health.amount <= 0){poisondeath = 0}
-            if (!element.invuln && !element.health.amount <= element.health.max / (55 - element.poisonLevel)) {
+            if (!element.invuln && element.health.amount > element.health.max / (55 - element.poisonLevel)) {
               element.health.amount -= element.health.max / (55 - element.poisonLevel)
               element.shield.amount -= element.shield.max / (35 - element.poisonLevel)
             }
