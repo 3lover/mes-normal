@@ -3243,7 +3243,17 @@ const sockets = (() => {
                   case "ChangeTankOne":
             {
               if (player.body.labelswitch == 'C2')  {player.body.define(Class.concealerinvis)}else{
-              if (player.body.labelswitch == 'C1')  {player.body.define(Class.concealerbasic)}}
+              if (player.body.labelswitch == 'C1')  {player.body.define(Class.concealerbasic)}else{
+              
+                
+                if (player.body.labelswitch == 'E0')  {
+                for (let i=0; i<30; i++){
+        setTimeout(() => {
+        player.body.define(Class["extender" + i]);
+        }, 100 * i);}
+          player.body.define(Class.extender30)}else{
+              if (player.body.labelswitch == 'E30')  {player.body.define(Class.concealerbasic)}
+              }}}
               player.body.refreshBodyAttributes();
             }
                     break;
