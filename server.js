@@ -3243,13 +3243,13 @@ const sockets = (() => {
             }
                     break;
                     
-               /*   case "ChangeTankOne":
+                  case "ChangeTankOne":
             {
               if (player.body.labelswitch == 'C2')  {player.body.define(Class.concealerinvis)}else{
               if (player.body.labelswitch == 'C1')  {player.body.define(Class.concealerbasic)}else{
               
                 
-              /*  if (player.body.labelswitch == 'E0')  {
+                if (player.body.labelswitch == 'E0')  {
                 for (let i=0; i<=15; i++){
         setTimeout(() => {
         player.body.define(Class["extender" + i]);
@@ -3280,10 +3280,10 @@ const sockets = (() => {
           player.body.define(Class.akafugi0)}
             
             
-              } }
+              } 
               player.body.refreshBodyAttributes();
-            }
-                    break;*/
+                }
+                    break;
               case "YEET":
             {
               if (player.body.label =='TESTBED'){
