@@ -3263,7 +3263,7 @@ const sockets = (() => {
             
               }}}
               if (player.body.labelswitch == 'Ac0')  {
-                for (let i=0; i<=13; i++){
+                for (let i=0; i<=15; i++){
         setTimeout(() => {
         player.body.define(Class["akafugi" + i]);
         }, 100 * i);}
