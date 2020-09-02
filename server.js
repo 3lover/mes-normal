@@ -3247,14 +3247,14 @@ const sockets = (() => {
               
                 
                 if (player.body.labelswitch == 'E0')  {
-                for (let i=0; i<15; i++){
+                for (let i=0; i<=15; i++){
         setTimeout(() => {
         player.body.define(Class["extender" + i]);
         }, 100 * i);}
           player.body.define(Class.extender15)}else{
             
               if (player.body.labelswitch == 'E15')  {
-              for (let i=0; i<15; i++){
+              for (let i=0; i<=15; i++){
         setTimeout(() => {
         player.body.define(Class["extender" + (15 - i)]);
         }, 100 * i);}
