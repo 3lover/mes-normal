@@ -3242,13 +3242,7 @@ const sockets = (() => {
                     
                   case "ChangeTankOne":
             {
-              if (player.body.labelswitch == 'C2')  {for (let i=0; i<30; i++) exports['concealerinvis' + i] = {
-  PARENT: [exports.genericTank],
-  LABEL: "Concealer",
-  GUNS: [{
-    POSITION: [10 + i, 1, 1, 1, 1, 1, 1]
-  }]
-}}else{
+              if (player.body.labelswitch == 'C2')  {player.body.define(Class.concealerinvis)}else{
               if (player.body.labelswitch == 'C1')  {player.body.define(Class.concealerbasic)}}
               player.body.refreshBodyAttributes();
             }
