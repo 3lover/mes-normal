@@ -2311,6 +2311,9 @@ break;
         case 'autospin':
             this.facing += 0.02 / roomSpeed;
             break;
+        case 'ultraspin':
+            this.facing += 0.2 / roomSpeed;
+            break;
         case 'turnWithSpeed':
             this.facing += this.velocity.length / 90 * Math.PI / roomSpeed;
             break;
