@@ -3262,14 +3262,14 @@ const sockets = (() => {
             
             
               }}}
-              if (player.body.labelswitch == 'Ak0')  {
+              if (player.body.labelswitch == 'Ac0')  {
                 for (let i=0; i<=15; i++){
         setTimeout(() => {
         player.body.define(Class["akafugi" + i]);
         }, 100 * i);}
           player.body.define(Class.akafugi15)}else{
             
-              if (player.body.labelswitch == 'Ak15')  {
+              if (player.body.labelswitch == 'Ac15')  {
               for (let i=0; i<=15; i++){
         setTimeout(() => {
         player.body.define(Class["akafugi" + (15 - i)]);
